@@ -1,13 +1,14 @@
+
 <div class="page-quick-sidebar">
     <div class="nav-justified">
         <ul class="nav nav-tabs nav-justified">
             <li class="active">
-                <a href="#" data-target="#quick_sidebar_tab_1" data-toggle="tab" dropdown-menu-hover data-close-others="true"> Users
-                    <span class="badge badge-danger">2</span>
+                <a href="#" data-target="#quick_sidebar_tab_1" data-toggle="tab" dropdown-menu-hover data-close-others="true"> 司机
+                    <span class="badge badge-danger">{{qc.drivers.length}}</span>
                 </a>
             </li>
             <li>
-                <a href="#" data-target="#quick_sidebar_tab_2" data-toggle="tab" dropdown-menu-hover data-close-others="true"> Alerts
+                <a href="#" data-target="#quick_sidebar_tab_2" data-toggle="tab" dropdown-menu-hover data-close-others="true"> 客服
                     <span class="badge badge-success">7</span>
                 </a>
             </li>
@@ -15,7 +16,7 @@
                 <a href="#" class="dropdown-toggle" dropdown-menu-hover data-toggle="dropdown" data-close-others="true"> More
                     <i class="fa fa-angle-down"></i>
                 </a>
-                <ul class="dropdown-menu pull-right" role="menu">
+                <!-- <ul class="dropdown-menu pull-right" role="menu">
                     <li>
                         <a href="#" data-target="#quick_sidebar_tab_3" data-toggle="tab">
                             <i class="icon-bell"></i> Alerts </a>
@@ -33,110 +34,41 @@
                         <a href="#" data-target="#quick_sidebar_tab_3" data-toggle="tab">
                             <i class="icon-settings"></i> Settings </a>
                     </li>
-                </ul>
+                </ul> -->
             </li>
         </ul>
         <div class="tab-content">
             <div class="tab-pane active page-quick-sidebar-chat" id="quick_sidebar_tab_1">
                 <div class="page-quick-sidebar-chat-users" data-rail-color="#ddd" data-wrapper-class="page-quick-sidebar-list">
-                    <h3 class="list-heading">Staff</h3>
+                    <h3 class="list-heading">上班</h3>
                     <ul class="media-list list-items">
-                        <li class="media">
+                        <li class="media" ng-repeat="driver in qc.drivers">
                             <div class="media-status">
-                                <span class="badge badge-success">8</span>
+                                <span class="badge badge-warning">{{driver.orders.length}}单</span>
                             </div>
-                            <img class="media-object" src="../assets/pages/media/users/avatar3.jpg" alt="...">
+                            <img class="media-object" src="../assets/pages/media/users/chanmao.jpg" alt="...">
                             <div class="media-body">
-                                <h4 class="media-heading">Bob Nilson</h4>
-                                <div class="media-heading-sub"> Project Manager </div>
-                            </div>
-                        </li>
-                        <li class="media">
-                            <img class="media-object" src="../assets/pages/media/users/avatar1.jpg" alt="...">
-                            <div class="media-body">
-                                <h4 class="media-heading">Nick Larson</h4>
-                                <div class="media-heading-sub"> Art Director </div>
-                            </div>
-                        </li>
-                        <li class="media">
-                            <div class="media-status">
-                                <span class="badge badge-danger">3</span>
-                            </div>
-                            <img class="media-object" src="../assets/pages/media/users/avatar4.jpg" alt="...">
-                            <div class="media-body">
-                                <h4 class="media-heading">Deon Hubert</h4>
-                                <div class="media-heading-sub"> CTO </div>
-                            </div>
-                        </li>
-                        <li class="media">
-                            <img class="media-object" src="../assets/pages/media/users/avatar2.jpg" alt="...">
-                            <div class="media-body">
-                                <h4 class="media-heading">Ella Wong</h4>
-                                <div class="media-heading-sub"> CEO </div>
+                                <h4 class="media-heading">{{driver.deliver}}</h4>
+                                <div class="media-heading-sub">电话</div>
+                                <div class="media-heading-sub">微信</div>
                             </div>
                         </li>
                     </ul>
-                    <h3 class="list-heading">Customers</h3>
+                   <!--  <h3 class="list-heading">未上班</h3>
                     <ul class="media-list list-items">
                         <li class="media">
                             <div class="media-status">
                                 <span class="badge badge-warning">2</span>
                             </div>
-                            <img class="media-object" src="../assets/pages/media/users/avatar6.jpg" alt="...">
+                            <img class="media-object" src="../assets/pages/media/users/chanmao.jpg" alt="...">
                             <div class="media-body">
                                 <h4 class="media-heading">Lara Kunis</h4>
                                 <div class="media-heading-sub"> CEO, Loop Inc </div>
                                 <div class="media-heading-small"> Last seen 03:10 AM </div>
                             </div>
                         </li>
-                        <li class="media">
-                            <div class="media-status">
-                                <span class="label label-sm label-success">new</span>
-                            </div>
-                            <img class="media-object" src="../assets/pages/media/users/avatar7.jpg" alt="...">
-                            <div class="media-body">
-                                <h4 class="media-heading">Ernie Kyllonen</h4>
-                                <div class="media-heading-sub"> Project Manager,
-                                    <br> SmartBizz PTL </div>
-                            </div>
-                        </li>
-                        <li class="media">
-                            <img class="media-object" src="../assets/pages/media/users/avatar8.jpg" alt="...">
-                            <div class="media-body">
-                                <h4 class="media-heading">Lisa Stone</h4>
-                                <div class="media-heading-sub"> CTO, Keort Inc </div>
-                                <div class="media-heading-small"> Last seen 13:10 PM </div>
-                            </div>
-                        </li>
-                        <li class="media">
-                            <div class="media-status">
-                                <span class="badge badge-success">7</span>
-                            </div>
-                            <img class="media-object" src="../assets/pages/media/users/avatar9.jpg" alt="...">
-                            <div class="media-body">
-                                <h4 class="media-heading">Deon Portalatin</h4>
-                                <div class="media-heading-sub"> CFO, H&D LTD </div>
-                            </div>
-                        </li>
-                        <li class="media">
-                            <img class="media-object" src="../assets/pages/media/users/avatar10.jpg" alt="...">
-                            <div class="media-body">
-                                <h4 class="media-heading">Irina Savikova</h4>
-                                <div class="media-heading-sub"> CEO, Tizda Motors Inc </div>
-                            </div>
-                        </li>
-                        <li class="media">
-                            <div class="media-status">
-                                <span class="badge badge-danger">4</span>
-                            </div>
-                            <img class="media-object" src="../assets/pages/media/users/avatar11.jpg" alt="...">
-                            <div class="media-body">
-                                <h4 class="media-heading">Maria Gomez</h4>
-                                <div class="media-heading-sub"> Manager, Infomatic Inc </div>
-                                <div class="media-heading-small"> Last seen 03:10 AM </div>
-                            </div>
-                        </li>
-                    </ul>
+                        
+                    </ul> -->
                 </div>
                 <div class="page-quick-sidebar-item">
                     <div class="page-quick-sidebar-chat-user">

@@ -1,10 +1,10 @@
-angular.module('MetronicApp').controller('DashboardController', function($rootScope, $scope, $http, $timeout,$interval) {
+angular.module('MetronicApp').controller('DashboardController', function($rootScope, $scope, $http, $timeout,$interval,auth,API_URL) {
     var DashCtrl = this;
     $scope.$on('$viewContentLoaded', function() {   
         // initialize core components
         App.initAjax();
     });
-
+    
     // set sidebar closed and body solid layout mode
     $rootScope.settings.layout.pageContentWhite = true;
     $rootScope.settings.layout.pageBodySolid = false;
@@ -14,10 +14,7 @@ angular.module('MetronicApp').controller('DashboardController', function($rootSc
     function get_orders() {
         $http({
           method: 'GET',
-          url: 'https://www.chanmao.ca/index.php?r=MobMonitor/OrderList',
-          headers: {
-           'Authortoken': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiIxMDYxMSIsImV4cGlyZWQiOjE0NTQzMDE3ODd9.Zanu0l3LW31UlGZ72PXbcBUDPGOstKai2oMYiX4ab_Y'
-         },
+          url: API_URL+'MobMonitor/OrderList',
         }).then(function successCallback(response) {
             console.log(response)
             DashCtrl.orders = response.data.ea_orders;

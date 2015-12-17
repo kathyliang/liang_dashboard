@@ -30,12 +30,24 @@
     }
 }
 .nonepadding{
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-left: 3px;
+    padding-right: 3px;
     
     height: 100%;
 }
 .border-left{
-    border-left: 2px solid #B6B6B6;
+    border-left: 0px solid #B6B6B6;
     height: 100%
+}
+.nopadding{
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+.warning{
+    background-color: #F7FE2E;
+    color: #FAFAFA;
+}
+.alert{
+    background-color: #FF0000;
+    color: #FAFAFA;
 }

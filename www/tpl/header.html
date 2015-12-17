@@ -1,5 +1,5 @@
-<!-- BEGIN HEADER INNER -->
-<div class="page-header-inner">
+
+<div class="page-header-inner" >
     <!-- BEGIN LOGO -->
     <div class="page-logo">
         <a href="index.html">
@@ -20,7 +20,7 @@
                 <span class="hidden-sm hidden-xs">Actions&nbsp;</span>
                 <i class="fa fa-angle-down"></i>
             </button>
-            <ul class="dropdown-menu" role="menu">
+            <!-- <ul class="dropdown-menu" role="menu">
                 <li>
                     <a href="#">
                         <i class="icon-docs"></i> New Post </a>
@@ -46,7 +46,7 @@
                         <span class="badge badge-danger">2</span>
                     </a>
                 </li>
-            </ul>
+            </ul> -->
         </div>
     </div>
     <!-- END PAGE ACTIONS -->
@@ -69,192 +69,288 @@
         <div class="top-menu">
             <ul class="nav navbar-nav pull-right">
                 <li class="separator hide"></li>
-                <!-- BEGIN NOTIFICATION DROPDOWN -->
+                <!-- BEGIN 汇总 -->
                 <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                 <li class="dropdown dropdown-extended dropdown-notification dropdown-dark" id="header_notification_bar">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"style="padding-bottom: 15px;">
                         <i class="icon-bell"></i>
-                        <span class="badge badge-success"> 7 </span>
+                        <span class="badge badge-success"> 汇总</span>
                     </a>
                     <ul class="dropdown-menu">
                         <li class="external">
                             <h3>
-                                <span class="bold">12 pending</span> notifications</h3>
+                                <span class="bold">所有订单：{{hc.statas.all}}单
                             <a href="#/profile/dashboard">view all</a>
                         </li>
                         <li>
                             <ul class="dropdown-menu-list scroller" style="height: 250px;" data-handle-color="#637283">
                                 <li>
                                     <a href="javascript:;">
-                                        <span class="time">just now</span>
+                                        <span class="time">{{hc.statas.warning}}单</span>
                                         <span class="details">
                                             <span class="label label-sm label-icon label-success">
                                                 <i class="fa fa-plus"></i>
-                                            </span> New user registered. </span>
+                                            </span> Warning: </span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="javascript:;">
-                                        <span class="time">3 mins</span>
+                                        <span class="time">{{hc.statas.alert}}单</span>
                                         <span class="details">
                                             <span class="label label-sm label-icon label-danger">
                                                 <i class="fa fa-bolt"></i>
-                                            </span> Server #12 overloaded. </span>
+                                            </span> Alert:</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="javascript:;">
-                                        <span class="time">10 mins</span>
-                                        <span class="details">
-                                            <span class="label label-sm label-icon label-warning">
-                                                <i class="fa fa-bell-o"></i>
-                                            </span> Server #2 not responding. </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">
-                                        <span class="time">14 hrs</span>
+                                        <span class="time">{{hc.statas.normal}}单</span>
                                         <span class="details">
                                             <span class="label label-sm label-icon label-info">
                                                 <i class="fa fa-bullhorn"></i>
-                                            </span> Application error. </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">
-                                        <span class="time">2 days</span>
-                                        <span class="details">
-                                            <span class="label label-sm label-icon label-danger">
-                                                <i class="fa fa-bolt"></i>
-                                            </span> Database overloaded 68%. </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">
-                                        <span class="time">3 days</span>
-                                        <span class="details">
-                                            <span class="label label-sm label-icon label-danger">
-                                                <i class="fa fa-bolt"></i>
-                                            </span> A user IP blocked. </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">
-                                        <span class="time">4 days</span>
-                                        <span class="details">
-                                            <span class="label label-sm label-icon label-warning">
-                                                <i class="fa fa-bell-o"></i>
-                                            </span> Storage Server #4 not responding dfdfdfd. </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">
-                                        <span class="time">5 days</span>
-                                        <span class="details">
-                                            <span class="label label-sm label-icon label-info">
-                                                <i class="fa fa-bullhorn"></i>
-                                            </span> System Error. </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">
-                                        <span class="time">9 days</span>
-                                        <span class="details">
-                                            <span class="label label-sm label-icon label-danger">
-                                                <i class="fa fa-bolt"></i>
-                                            </span> Storage server failed. </span>
+                                            </span> 正在:</span>
                                     </a>
                                 </li>
                             </ul>
                         </li>
                     </ul>
                 </li>
-                <!-- END NOTIFICATION DROPDOWN -->
+                <!-- END 汇总 -->
                 <li class="separator hide"></li>
-                <!-- BEGIN INBOX DROPDOWN -->
+                <!-- BEGIN 简易记录 -->
                 <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                 <li class="dropdown dropdown-extended dropdown-inbox dropdown-dark" id="header_inbox_bar">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"style="padding-bottom: 15px;">
                         <i class="icon-envelope-open"></i>
-                        <span class="badge badge-danger"> 4 </span>
+                        <span class="badge badge-danger">备注</span>
                     </a>
                     <ul class="dropdown-menu">
                         <li class="external">
-                            <h3>You have
-                                <span class="bold">7 New</span> Messages</h3>
+                            <h3>简易记录</h3>
                             <a href="#/profile/dashboard">view all</a>
                         </li>
-                        <li>
-                            <ul class="dropdown-menu-list scroller" style="height: 275px;" data-handle-color="#637283">
-                                <li>
-                                    <a href="#">
-                                        <span class="photo">
-                                            <img src="{{settings.layoutPath}}/img/avatar2.jpg" class="img-circle" alt=""> </span>
-                                        <span class="subject">
-                                            <span class="from"> Lisa Wong </span>
-                                            <span class="time">Just Now </span>
+                        <div class="form-body">
+                            <div class="form-group form-md-line-input">
+                                <label class="col-md-3 control-label" for="form_control_1">Default State</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" placeholder="">
+                                    <div class="form-control-focus"> </div>
+                                    <span class="help-block">Some help goes here...</span>
+                                </div>
+                            </div>
+                           <!--  <div class="form-group form-md-line-input has-error">
+                                <label class="col-md-3 control-label" for="form_control_1">Error State</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" placeholder="">
+                                    <div class="form-control-focus"> </div>
+                                    <span class="help-block">Some help goes here...</span>
+                                </div>
+                            </div>
+                            <div class="form-group form-md-line-input has-warning">
+                                <label class="col-md-3 control-label" for="form_control_1">Warning State</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" placeholder="">
+                                    <div class="form-control-focus"> </div>
+                                    <span class="help-block">Some help goes here...</span>
+                                </div>
+                            </div>
+                            <div class="form-group form-md-line-input has-success">
+                                <label class="col-md-3 control-label" for="form_control_1">Success State</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" placeholder="">
+                                    <div class="form-control-focus"> </div>
+                                    <span class="help-block">Some help goes here...</span>
+                                </div>
+                            </div>
+                            <div class="form-group form-md-line-input has-warning">
+                                <label class="col-md-3 control-label" for="form_control_1">Input Group</label>
+                                <div class="col-md-9">
+                                    <div class="input-group has-success">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-envelope"></i>
                                         </span>
-                                        <span class="message"> Vivamus sed auctor nibh congue nibh. auctor nibh auctor nibh... </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <span class="photo">
-                                            <img src="{{settings.layoutPath}}/img/avatar3.jpg" class="img-circle" alt=""> </span>
-                                        <span class="subject">
-                                            <span class="from"> Richard Doe </span>
-                                            <span class="time">16 mins </span>
+                                        <input type="text" class="form-control" placeholder="Email Address">
+                                        <div class="form-control-focus"> </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group form-md-line-input has-success">
+                                <label class="col-md-3 control-label" for="form_control_1">Input Group</label>
+                                <div class="col-md-9">
+                                    <div class="input-group has-success">
+                                        <input type="text" class="form-control" placeholder="Email Address">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-envelope"></i>
                                         </span>
-                                        <span class="message"> Vivamus sed congue nibh auctor nibh congue nibh. auctor nibh auctor nibh... </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <span class="photo">
-                                            <img src="{{settings.layoutPath}}/img/avatar1.jpg" class="img-circle" alt=""> </span>
-                                        <span class="subject">
-                                            <span class="from"> Bob Nilson </span>
-                                            <span class="time">2 hrs </span>
-                                        </span>
-                                        <span class="message"> Vivamus sed nibh auctor nibh congue nibh. auctor nibh auctor nibh... </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <span class="photo">
-                                            <img src="{{settings.layoutPath}}/img/avatar2.jpg" class="img-circle" alt=""> </span>
-                                        <span class="subject">
-                                            <span class="from"> Lisa Wong </span>
-                                            <span class="time">40 mins </span>
-                                        </span>
-                                        <span class="message"> Vivamus sed auctor 40% nibh congue nibh... </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <span class="photo">
-                                            <img src="{{settings.layoutPath}}/img/avatar3.jpg" class="img-circle" alt=""> </span>
-                                        <span class="subject">
-                                            <span class="from"> Richard Doe </span>
-                                            <span class="time">46 mins </span>
-                                        </span>
-                                        <span class="message"> Vivamus sed congue nibh auctor nibh congue nibh. auctor nibh auctor nibh... </span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
+                                        <div class="form-control-focus"> </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <div class="form-group form-md-line-input has-success">
+                                <label class="col-md-3 control-label" for="form_control_1">Dropdown</label>
+                                <div class="col-md-9">
+                                    <select class="form-control" name="">
+                                        <option value="">Option 1</option>
+                                        <option value="">Option 2</option>
+                                        <option value="">Option 3</option>
+                                    </select>
+                                    <div class="form-control-focus"> </div>
+                                    <span class="help-block">Some help goes here...</span>
+                                </div>
+                            </div>
+                            <!-- <div class="form-group form-md-line-input has-error">
+                                <label class="col-md-3 control-label" for="form_control_1">Dropdown</label>
+                                <div class="col-md-9">
+                                    <select class="form-control" name="">
+                                        <option value="">Option 1</option>
+                                        <option value="">Option 2</option>
+                                        <option value="">Option 3</option>
+                                    </select>
+                                    <div class="form-control-focus"> </div>
+                                    <span class="help-block">Some help goes here...</span>
+                                </div>
+                            </div> -->
+                           <!--  <div class="form-group form-md-line-input has-error">
+                                <label class="col-md-3 control-label" for="form_control_1">Textarea</label>
+                                <div class="col-md-9">
+                                    <textarea class="form-control" name="" rows="3"></textarea>
+                                    <div class="form-control-focus"> </div>
+                                    <span class="help-block">Some help goes here...</span>
+                                </div>
+                            </div> -->
+                            <div class="form-group form-md-line-input has-success">
+                                <label class="col-md-3 control-label" for="form_control_1">Textarea</label>
+                                <div class="col-md-9">
+                                    <textarea class="form-control" name="" rows="3"></textarea>
+                                    <div class="form-control-focus"> </div>
+                                    <span class="help-block">Some help goes here...</span>
+                                </div>
+                            </div>
+                            <div class="form-group form-md-checkboxes">
+                                <label class="col-md-3 control-label" for="form_control_1">Checkboxes</label>
+                                <div class="col-md-9">
+                                    <div class="md-checkbox-list">
+                                        <div class="md-checkbox">
+                                            <input type="checkbox" id="checkbox1_1" class="md-check">
+                                            <label for="checkbox1_1">
+                                                <span></span>
+                                                <span class="check"></span>
+                                                <span class="box"></span> Option 1 </label>
+                                        </div>
+                                        <div class="md-checkbox">
+                                            <input type="checkbox" id="checkbox1_2" class="md-check">
+                                            <label for="checkbox1_2">
+                                                <span></span>
+                                                <span class="check"></span>
+                                                <span class="box"></span> Option 2 </label>
+                                        </div>
+                                        <div class="md-checkbox">
+                                            <input type="checkbox" id="checkbox1_211" class="md-check">
+                                            <label for="checkbox1_211">
+                                                <span></span>
+                                                <span class="check"></span>
+                                                <span class="box"></span> Option 3 </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="form-group form-md-checkboxes has-error">
+                                <label class="col-md-3 control-label" for="form_control_1">Checkboxes(error)</label>
+                                <div class="col-md-9">
+                                    <div class="md-checkbox-inline">
+                                        <div class="md-checkbox">
+                                            <input type="checkbox" id="checkbox1_3" class="md-check">
+                                            <label for="checkbox1_3">
+                                                <span></span>
+                                                <span class="check"></span>
+                                                <span class="box"></span> Option 1 </label>
+                                        </div>
+                                        <div class="md-checkbox">
+                                            <input type="checkbox" id="checkbox1_4" class="md-check" checked="">
+                                            <label for="checkbox1_4">
+                                                <span></span>
+                                                <span class="check"></span>
+                                                <span class="box"></span> Option 2 </label>
+                                        </div>
+                                        <div class="md-checkbox">
+                                            <input type="checkbox" id="checkbox1_5" class="md-check">
+                                            <label for="checkbox1_5">
+                                                <span></span>
+                                                <span class="check"></span>
+                                                <span class="box"></span> Option 3 </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <<!-- div class="form-group form-md-radios has-success">
+                                <label class="col-md-3 control-label" for="form_control_1">Radios(success)</label>
+                                <div class="col-md-9">
+                                    <div class="md-radio-list">
+                                        <div class="md-radio">
+                                            <input type="radio" id="checkbox1_6" name="radio211" class="md-radiobtn">
+                                            <label for="checkbox1_6">
+                                                <span></span>
+                                                <span class="check"></span>
+                                                <span class="box"></span> Option 1 </label>
+                                        </div>
+                                        <div class="md-radio">
+                                            <input type="radio" id="checkbox1_7" name="radio211" class="md-radiobtn" checked="">
+                                            <label for="checkbox1_6">
+                                                <span></span>
+                                                <span class="check"></span>
+                                                <span class="box"></span> Option 2 </label>
+                                        </div>
+                                        <div class="md-radio">
+                                            <input type="radio" id="checkbox1_611" name="radio211" class="md-radiobtn" checked="">
+                                            <label for="checkbox1_611">
+                                                <span></span>
+                                                <span class="check"></span>
+                                                <span class="box"></span> Option 3 </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <!-- <div class="form-group form-md-radios has-warning">
+                                <label class="col-md-3 control-label" for="form_control_1">Radios(warning)</label>
+                                <div class="col-md-9">
+                                    <div class="md-radio-inline">
+                                        <div class="md-radio">
+                                            <input type="radio" id="checkbox1_8" name="radio2" class="md-radiobtn">
+                                            <label for="checkbox1_8">
+                                                <span></span>
+                                                <span class="check"></span>
+                                                <span class="box"></span> Option 1 </label>
+                                        </div>
+                                        <div class="md-radio">
+                                            <input type="radio" id="checkbox1_9" name="radio2" class="md-radiobtn" checked="">
+                                            <label for="checkbox1_9">
+                                                <span></span>
+                                                <span class="check"></span>
+                                                <span class="box"></span> Option 2 </label>
+                                        </div>
+                                        <div class="md-radio">
+                                            <input type="radio" id="checkbox1_10" name="radio2" class="md-radiobtn">
+                                            <label for="checkbox1_10">
+                                                <span></span>
+                                                <span class="check"></span>
+                                                <span class="box"></span> Option 3 </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
                     </ul>
                 </li>
-                <!-- END INBOX DROPDOWN -->
+                <!-- END 简易记录 -->
                 <li class="separator hide"></li>
                 <!-- BEGIN TODO DROPDOWN -->
                 <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                 <li class="dropdown dropdown-extended dropdown-tasks dropdown-dark" id="header_task_bar">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"style="padding-bottom: 15px;">
                         <i class="icon-calendar"></i>
                         <span class="badge badge-primary"> 3 </span>
                     </a>
-                    <ul class="dropdown-menu extended tasks">
+                   <!--  <ul class="dropdown-menu extended tasks">
                         <li class="external">
                             <h3>You have
                                 <span class="bold">12 pending</span> tasks</h3>
@@ -355,16 +451,16 @@
                                 </li>
                             </ul>
                         </li>
-                    </ul>
+                    </ul> -->
                 </li>
                 <!-- END TODO DROPDOWN -->
                 <!-- BEGIN USER LOGIN DROPDOWN -->
                 <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                 <li class="dropdown dropdown-user dropdown-dark">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                        <span class="username username-hide-on-mobile"> Nick </span>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"style="padding-bottom: 9px;">
+                        <span class="username username-hide-on-mobile"> 馋猫客服 </span>
                         <!-- DOC: Do not remove below empty space(&nbsp;) as its purposely used -->
-                        <img alt="" class="img-circle" src="{{settings.layoutPath}}/img/avatar9.jpg" /> </a>
+                        <img alt="" class="img-circle" src="{{settings.layoutPath}}/img/chanmao.jpg" /> </a>
                     <ul class="dropdown-menu dropdown-menu-default">
                         <li>
                             <a href="#/profile/dashboard">
@@ -410,4 +506,4 @@
     </div>
     <!-- END PAGE TOP -->
 </div>
-<!-- END HEADER INNER -->
+<!-- END HEADER INNER

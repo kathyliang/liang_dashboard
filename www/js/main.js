@@ -101,11 +101,11 @@ initialization can be disabled and Layout.init() should be called on page load c
 ***/
 
 /* Setup Layout Part - Header */
-MetronicApp.controller('HeaderController', ['$scope', function($scope) {
-    $scope.$on('$includeContentLoaded', function() {
-        Layout.initHeader(); // init header
-    });
-}]);
+// MetronicApp.controller('HeaderController', ['$scope', function($scope) {
+//     $scope.$on('$includeContentLoaded', function() {
+//         Layout.initHeader(); // init header
+//     });
+// }]);
 
 /* Setup Layout Part - Sidebar */
 MetronicApp.controller('SidebarController', ['$scope', function($scope) {
@@ -121,14 +121,14 @@ MetronicApp.controller('PageHeadController', ['$scope', function($scope) {
     });
 }]);
 
-/* Setup Layout Part - Quick Sidebar */
-MetronicApp.controller('QuickSidebarController', ['$scope', function($scope) {    
-    $scope.$on('$includeContentLoaded', function() {
-       setTimeout(function(){
-            QuickSidebar.init(); // init quick sidebar        
-        }, 2000)
-    });
-}]);
+// /* Setup Layout Part - Quick Sidebar */
+// MetronicApp.controller('QuickSidebarController', ['$scope', function($scope) {    
+//     $scope.$on('$includeContentLoaded', function() {
+//        setTimeout(function(){
+//             QuickSidebar.init(); // init quick sidebar        
+//         }, 2000)
+//     });
+// }]);
 
 /* Setup Layout Part - Theme Panel */
 MetronicApp.controller('ThemePanelController', ['$scope', function($scope) {    
@@ -144,17 +144,21 @@ MetronicApp.controller('FooterController', ['$scope', function($scope) {
     });
 }]);
 
+MetronicApp.constant("API_URL", "https://chanmao.ca/index.php?r=");
+
 /* Setup Rounting For All Pages */
-MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+MetronicApp.config(['$stateProvider', '$urlRouterProvider','$httpProvider', function($stateProvider, $urlRouterProvider,$httpProvider) {
     // Redirect any unmatched url
     $urlRouterProvider.otherwise("/dashboard.html");  
+    $httpProvider.interceptors.push('authInterceptor');
     
     $stateProvider
-
+       
         // Dashboard
         .state('dashboard', {
             url: "/dashboard.html",
-            templateUrl: "views/dashboard.html",            
+            templateUrl: "views/dashboard.html",   
+            // templateUrl: "views/login.html",            
             // data: {pageTitle: '馋猫订餐 Dashboard'},
             controller: "DashboardController as dc",
             resolve: {
@@ -169,13 +173,42 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                             '../assets/global/plugins/jquery.sparkline.min.js',
                             //
                             '../assets/pages/scripts/dashboard.min.js',
-                            'js/controllers/DashboardController.js',
+                            'js/controllers/DashboardController.js'
+
                         ] 
                     });
                 }]
             }
         })
-
+         // Login
+        .state('login', {
+            url: "/login.html",
+            templateUrl: "views/login.html",            
+            // data: {pageTitle: '馋猫订餐 Dashboard'},
+            //controller: "DashboardController as dc",
+            resolve: {
+                deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        name: 'MetronicApp',
+                        insertBefore: '#ng_load_plugins_before', // load the above css files before a LINK element with this ID. Dynamic CSS files must be loaded between core and theme css files
+                        files: [
+                            '../assets/global/plugins/morris/morris.css',                            
+                            '../assets/global/plugins/morris/morris.min.js',
+                            '../assets/global/plugins/morris/raphael-min.js',                            
+                            '../assets/global/plugins/jquery.sparkline.min.js',
+                            //
+                            '../assets/pages/scripts/dashboard.min.js',
+                            'js/controllers/DashboardController.js'
+                        ] 
+                    });
+                }]
+            }
+        })
+        // .state('header', {
+        //     templateUrl: "views/dashboard.html",  
+        //     controller: "HeaderController as hc",
+                
+        //     })
         // AngularJS plugins
         .state('fileupload', {
             url: "/file_upload.html",

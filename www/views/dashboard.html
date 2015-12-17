@@ -22,86 +22,78 @@
             
             <ion-scroll style="height: 50%">
             <!-- BEGIN 改运费-->
-            <div class="portlet light" ng-repeat="(id,order) in dc.change_addr_order"style="margin-bottom: 8px;">
-                <div class="portlet-title">
-                    <div class="caption font-green-sharp">
-                        <i class="icon-speech font-green-sharp"></i>
-                        <span class="caption-subject"style="font-size: 12px;"> {{order.oid}}</span>
-                        <!-- <span class="caption-helper">送餐</span> -->
-                    </div>
-                    <div class="actions">
-                        <a class="btn btn-circle btn-default "style="font-size: 12px;">
-                            {{order.dltype}}
-                        </a> 
-                    </div>
-                </div>
-                <div class="portlet-body"style="font-size: 10px;">
-                    <div class="scroller" style="height:auto" data-rail-visible="1" data-rail-color="yellow" data-handle-color="#a1b2bd">
-                       
-                        <div class="row"style="margin-left: 0px;margin-right: -5px;">
+            <div style="height:350px;width:100%;border:0px solid #ccc;overflow:auto;">
+              <div class="portlet light" ng-repeat="(id,order) in dc.change_addr_order"style="margin-bottom: 8px;padding-left: 5px;padding-right: 5px;padding-bottom: 5px;">
+                  <div class="portlet-title"ng-class="{warning:order.warning==1,alert:order.alert==1}">
+                      <div class="caption font-green-sharp"ng-class="{warning:order.warning==1,alert:order.alert==1}">
+                          <i class="icon-speech font-green-sharp"></i>
+                          <span class="caption-subject"style="font-size: 12px;"> {{order.oid}}</span>
+                          <span class="caption-subject"style="font-size: 10px;">   电话：{{order.cell}}</span>
+                          <!-- <span class="caption-helper">送餐</span> -->
+                      </div>
+                      <div class="actions">
+                          <a class="btn btn-circle btn-default "style="font-size: 12px;">
+                              {{order.dltype}}
+                          </a> 
+                      </div>
+                  </div>
+                  <div class="portlet-body"style="font-size: 10px;">
+                      <div class="scroller" style="height:auto" data-rail-visible="1" data-rail-color="yellow" data-handle-color="#a1b2bd">
+                         
+                          <div class="row"style="margin-left: 0px;margin-right: -5px;">
 
-                            <div class="col-md-3 nonepadding">
-                                餐馆
-                            </div>
-                            <div class="col-md-9 nonepadding">
-                                {{order.rrname}}}
-                            </div>
-                        </div> 
+                              <div class="col-md-3 nonepadding">
+                                  餐馆
+                              </div>
+                              <div class="col-md-9 nonepadding">
+                                  {{order.rrname}}}
+                              </div>
+                          </div> 
 
-                        <div class="row"style="margin-left: 0px;margin-right: -5px;">
+                          <div class="row"style="margin-left: 0px;margin-right: -5px;">
 
-                            <div class="col-md-3 nonepadding">
-                                总价
-                            </div>
-                            <div class="col-md-5 nonepadding">
-                                {{order.total | currency}}
-                            </div>
-                            <div class="col-md-2 nonepadding">
-                                运费
-                            </div>
-                            <div class="col-md-2 nonepadding">
-                               {{order.dlexp | currency}}
-                            </div>
-                        </div> 
-                       
-                       <div class="row"style="margin-left: 0px;margin-right: -5px;">
+                              <div class="col-md-3 nonepadding">
+                                  总价
+                              </div>
+                              <div class="col-md-5 nonepadding">
+                                  {{order.total | currency}}
+                              </div>
+                              <div class="col-md-2 nonepadding">
+                                  运费
+                              </div>
+                              <div class="col-md-2 nonepadding">
+                                 {{order.dlexp | currency}}
+                              </div>
+                          </div> 
+                         
+                         <div class="row"style="margin-left: 0px;margin-right: -5px;">
 
-                           <div class="col-md-3 nonepadding">
-                               状态
-                           </div>
-                           <div class="col-md-5 nonepadding">
-                               {{order.status_txt}}
-                           </div>
-                           <div class="col-md-2 nonepadding">
-                              平台
-                           </div>
-                           <div class="col-md-2 nonepadding">
-                               {{order.channel}}
-                           </div>
-                       </div> 
-                       <div class="row"style="margin-left: 0px;margin-right: -5px;">
+                             <div class="col-md-3 nonepadding">
+                                 状态
+                             </div>
+                             <div class="col-md-5 nonepadding">
+                                 {{order.status_txt}}
+                             </div>
+                             <div class="col-md-2 nonepadding">
+                                平台
+                             </div>
+                             <div class="col-md-2 nonepadding">
+                                 {{order.channel}}
+                             </div>
+                         </div> 
+                         <div class="row"style="margin-left: 0px;margin-right: -5px;">
 
-                           <div class="col-md-3 nonepadding">
-                               时间
-                           </div>
-                           <div class="col-md-9 nonepadding">
-                               {{order.created}}
-                           </div>
-                          
-                       </div> 
-                       
-                       
-                        <!-- <div class="row"style="margin-left: 0px;margin-right: -5px;">
-
-                            <div class="col-md-3 nonepadding">
-                                餐馆
-                            </div>
-                            <div class="col-md-9 nonepadding">
-                                 杨师傅东北烧烤王(Scarborough) 
-                            </div>
-                        </div>  -->
-                    </div>
-                </div>
+                             <div class="col-md-3 nonepadding">
+                                 时间
+                             </div>
+                             <div class="col-md-9 nonepadding">
+                                 {{order.created}}
+                             </div>
+                            
+                         </div> 
+                      </div>
+                  </div>
+              </div>
             </div>
             <!-- END 改运费-->
             <div class="item item-divider"style="text-align: center;">
@@ -110,86 +102,89 @@
             </div>
             <ion-scroll style="height: 50%">
             <!-- BEGIN 新用户-->
-            <div class="portlet light" ng-repeat="(id,order) in dc.new_user_order"style="margin-bottom: 8px;">
-                <div class="portlet-title">
-                    <div class="caption font-green-sharp">
-                        <i class="icon-speech font-green-sharp"></i>
-                        <span class="caption-subject"style="font-size: 12px;"> {{order.oid}}</span>
-                        <!-- <span class="caption-helper">送餐</span> -->
-                    </div>
-                    <div class="actions">
-                        <a class="btn btn-circle btn-default "style="font-size: 12px;">
-                            {{order.dltype}}
-                        </a> 
-                    </div>
-                </div>
-                <div class="portlet-body"style="font-size: 10px;">
-                    <div class="scroller" style="height:auto" data-rail-visible="1" data-rail-color="yellow" data-handle-color="#a1b2bd">
-                       
-                        <div class="row"style="margin-left: 0px;margin-right: -5px;">
+            <div style="height:300px;width:100%;border:0px solid #ccc;overflow:auto;">
+              <div class="portlet light" ng-repeat="(id,order) in dc.new_user_order"style="margin-bottom: 8px;padding-left: 5px;padding-right: 5px;padding-bottom: 5px;">
+                  <div class="portlet-title"ng-class="{warning:order.warning==1,alert:order.alert==1}">
+                      <div class="caption font-green-sharp">
+                          <i class="icon-speech font-green-sharp"></i>
+                          <span class="caption-subject"style="font-size: 12px;"> {{order.oid}}</span>
+                          <span class="caption-subject"style="font-size: 10px;">   电话：{{order.cell}}</span>
+                          <!-- <span class="caption-helper">送餐</span> -->
+                      </div>
+                      <div class="actions">
+                          <a class="btn btn-circle btn-default "style="font-size: 12px;">
+                              {{order.dltype}}
+                          </a> 
+                      </div>
+                  </div>
+                  <div class="portlet-body"style="font-size: 10px;">
+                      <div class="scroller" style="height:auto" data-rail-visible="1" data-rail-color="yellow" data-handle-color="#a1b2bd">
+                         
+                          <div class="row"style="margin-left: 0px;margin-right: -5px;">
 
-                            <div class="col-md-3 nonepadding">
-                                餐馆
-                            </div>
-                            <div class="col-md-9 nonepadding">
-                                {{order.rrname}}}
-                            </div>
-                        </div> 
+                              <div class="col-md-3 nonepadding">
+                                  餐馆
+                              </div>
+                              <div class="col-md-9 nonepadding">
+                                  {{order.rrname}}}
+                              </div>
+                          </div> 
 
-                        <div class="row"style="margin-left: 0px;margin-right: -5px;">
+                          <div class="row"style="margin-left: 0px;margin-right: -5px;">
 
-                            <div class="col-md-3 nonepadding">
-                                总价
-                            </div>
-                            <div class="col-md-5 nonepadding">
-                                {{order.total | currency}}
-                            </div>
-                            <div class="col-md-2 nonepadding">
-                                运费
-                            </div>
-                            <div class="col-md-2 nonepadding">
-                               {{order.dlexp | currency}}
-                            </div>
-                        </div> 
-                       
-                       <div class="row"style="margin-left: 0px;margin-right: -5px;">
+                              <div class="col-md-3 nonepadding">
+                                  总价
+                              </div>
+                              <div class="col-md-5 nonepadding">
+                                  {{order.total | currency}}
+                              </div>
+                              <div class="col-md-2 nonepadding">
+                                  运费
+                              </div>
+                              <div class="col-md-2 nonepadding">
+                                 {{order.dlexp | currency}}
+                              </div>
+                          </div> 
+                         
+                         <div class="row"style="margin-left: 0px;margin-right: -5px;">
 
-                           <div class="col-md-3 nonepadding">
-                               状态
-                           </div>
-                           <div class="col-md-5 nonepadding">
-                               {{order.status_txt}}
-                           </div>
-                           <div class="col-md-2 nonepadding">
-                              平台
-                           </div>
-                           <div class="col-md-2 nonepadding">
-                               {{order.channel}}
-                           </div>
-                       </div> 
-                       <div class="row"style="margin-left: 0px;margin-right: -5px;">
+                             <div class="col-md-3 nonepadding">
+                                 状态
+                             </div>
+                             <div class="col-md-5 nonepadding">
+                                 {{order.status_txt}}
+                             </div>
+                             <div class="col-md-2 nonepadding">
+                                平台
+                             </div>
+                             <div class="col-md-2 nonepadding">
+                                 {{order.channel}}
+                             </div>
+                         </div> 
+                         <div class="row"style="margin-left: 0px;margin-right: -5px;">
 
-                           <div class="col-md-3 nonepadding">
-                               时间
-                           </div>
-                           <div class="col-md-9 nonepadding">
-                               {{order.created}}
-                           </div>
-                          
-                       </div> 
-                       
-                       
-                        <!-- <div class="row"style="margin-left: 0px;margin-right: -5px;">
+                             <div class="col-md-3 nonepadding">
+                                 时间
+                             </div>
+                             <div class="col-md-9 nonepadding">
+                                 {{order.created}}
+                             </div>
+                            
+                         </div> 
+                         
+                         
+                          <!-- <div class="row"style="margin-left: 0px;margin-right: -5px;">
 
-                            <div class="col-md-3 nonepadding">
-                                餐馆
-                            </div>
-                            <div class="col-md-9 nonepadding">
-                                 杨师傅东北烧烤王(Scarborough) 
-                            </div>
-                        </div>  -->
-                    </div>
-                </div>
+                              <div class="col-md-3 nonepadding">
+                                  餐馆
+                              </div>
+                              <div class="col-md-9 nonepadding">
+                                   杨师傅东北烧烤王(Scarborough) 
+                              </div>
+                          </div>  -->
+                      </div>
+                  </div>
+              </div>
             </div>
             <!-- END 新用户-->
 
@@ -202,86 +197,89 @@
                 <span ng-if="dc.new_order.length > 0">{{dc.new_order.length}}单 </span>
             </div>
             <!-- BEGIN ORDER BOX-->
-            <div class="portlet light"ng-repeat="(id,order) in dc.new_order"style="margin-bottom: 8px;">
-                <div class="portlet-title">
-                    <div class="caption font-green-sharp">
-                        <i class="icon-speech font-green-sharp"></i>
-                        <span class="caption-subject"style="font-size: 12px;"> {{order.oid}}</span>
-                        <!-- <span class="caption-helper">送餐</span> -->
-                    </div>
-                    <div class="actions">
-                        <a class="btn btn-circle btn-default "style="font-size: 12px;">
-                            {{order.dltype}} 
-                        </a> 
-                    </div>
-                </div>
-                <div class="portlet-body"style="font-size: 10px;">
-                    <div class="scroller" style="height:auto" data-rail-visible="1" data-rail-color="yellow" data-handle-color="#a1b2bd">
-                       
-                        <div class="row"style="margin-left: 0px;margin-right: -5px;">
+            <div style="height:600px;width:100%;border:0px solid #ccc;overflow:auto;">
+              <div class="portlet light"ng-repeat="(id,order) in dc.new_order"style="margin-bottom: 8px;padding-left: 5px;padding-right: 5px;padding-bottom: 5px;">
+                  <div class="portlet-title"ng-class="{warning:order.warning==1,alert:order.alert==1}">
+                      <div class="caption font-green-sharp">
+                          <i class="icon-speech font-green-sharp"></i>
+                          <span class="caption-subject"style="font-size: 12px;"> {{order.oid}}</span>
+                          <span class="caption-subject"style="font-size: 10px;">   电话：{{order.cell}}</span>
+                          <!-- <span class="caption-helper">送餐</span> -->
+                      </div>
+                      <div class="actions">
+                          <a class="btn btn-circle btn-default "style="font-size: 12px;">
+                              {{order.dltype}} 
+                          </a> 
+                      </div>
+                  </div>
+                  <div class="portlet-body"style="font-size: 10px;">
+                      <div class="scroller" style="height:auto" data-rail-visible="1" data-rail-color="yellow" data-handle-color="#a1b2bd">
+                         
+                          <div class="row"style="margin-left: 0px;margin-right: -5px;">
 
-                            <div class="col-md-3 nonepadding">
-                                餐馆
-                            </div>
-                            <div class="col-md-9 nonepadding">
-                                 {{order.rrname}}
-                            </div>
-                        </div> 
+                              <div class="col-md-3 nonepadding">
+                                  餐馆
+                              </div>
+                              <div class="col-md-9 nonepadding">
+                                   {{order.rrname}}
+                              </div>
+                          </div> 
 
-                        <div class="row"style="margin-left: 0px;margin-right: -5px;">
+                          <div class="row"style="margin-left: 0px;margin-right: -5px;">
 
-                            <div class="col-md-3 nonepadding">
-                                总价
-                            </div>
-                            <div class="col-md-5 nonepadding">
-                                {{order.total | currency}}
-                            </div>
-                            <div class="col-md-2 nonepadding">
-                                运费
-                            </div>
-                            <div class="col-md-2 nonepadding">
-                                {{order.dlexp | currency}}
-                            </div>
-                        </div> 
-                       
-                       <div class="row"style="margin-left: 0px;margin-right: -5px;">
+                              <div class="col-md-3 nonepadding">
+                                  总价
+                              </div>
+                              <div class="col-md-5 nonepadding">
+                                  {{order.total | currency}}
+                              </div>
+                              <div class="col-md-2 nonepadding">
+                                  运费
+                              </div>
+                              <div class="col-md-2 nonepadding">
+                                  {{order.dlexp | currency}}
+                              </div>
+                          </div> 
+                         
+                         <div class="row"style="margin-left: 0px;margin-right: -5px;">
 
-                           <div class="col-md-3 nonepadding">
-                               状态
-                           </div>
-                           <div class="col-md-5 nonepadding">
-                              {{order.status_txt}}
-                           </div>
-                           <div class="col-md-2 nonepadding">
-                              平台
-                           </div>
-                           <div class="col-md-2 nonepadding">
-                               {{order.channel}}
-                           </div>
-                       </div> 
-                       <div class="row"style="margin-left: 0px;margin-right: -5px;">
+                             <div class="col-md-3 nonepadding">
+                                 状态
+                             </div>
+                             <div class="col-md-5 nonepadding">
+                                {{order.status_txt}}
+                             </div>
+                             <div class="col-md-2 nonepadding">
+                                平台
+                             </div>
+                             <div class="col-md-2 nonepadding">
+                                 {{order.channel}}
+                             </div>
+                         </div> 
+                         <div class="row"style="margin-left: 0px;margin-right: -5px;">
 
-                           <div class="col-md-3 nonepadding">
-                               时间
-                           </div>
-                           <div class="col-md-9 nonepadding">
-                               {{order.created}}
-                           </div>
-                          
-                       </div> 
-                       
-                       
-                        <!-- <div class="row"style="margin-left: 0px;margin-right: -5px;">
+                             <div class="col-md-3 nonepadding">
+                                 时间
+                             </div>
+                             <div class="col-md-9 nonepadding">
+                                 {{order.created}}
+                             </div>
+                            
+                         </div> 
+                         
+                         
+                          <!-- <div class="row"style="margin-left: 0px;margin-right: -5px;">
 
-                            <div class="col-md-3 nonepadding">
-                                餐馆
-                            </div>
-                            <div class="col-md-9 nonepadding">
-                                 杨师傅东北烧烤王(Scarborough) 
-                            </div>
-                        </div>  -->
-                    </div>
-                </div>
+                              <div class="col-md-3 nonepadding">
+                                  餐馆
+                              </div>
+                              <div class="col-md-9 nonepadding">
+                                   杨师傅东北烧烤王(Scarborough) 
+                              </div>
+                          </div>  -->
+                      </div>
+                  </div>
+              </div>
             </div>
             <!-- END ORDER BOX-->
         </div>
@@ -294,86 +292,90 @@
             <span ng-if="dc.confirm_order.length > 0">{{dc.confirm_order.length}}单 </span>
             </div>
             <!-- BEGIN ORDER BOX-->
-            <div class="portlet light"ng-repeat="(id,order) in dc.confirm_order"style="margin-bottom: 8px;">
-                <div class="portlet-title">
-                    <div class="caption font-green-sharp">
-                        <i class="icon-speech font-green-sharp"></i>
-                        <span class="caption-subject"style="font-size: 12px;">{{order.oid}}</span>
-                        <!-- <span class="caption-helper">送餐</span> -->
-                    </div>
-                    <div class="actions">
-                        <a class="btn btn-circle btn-default "style="font-size: 12px;">
-                            {{order.dltype}} 
-                        </a> 
-                    </div>
-                </div>
-                <div class="portlet-body"style="font-size: 10px;">
-                    <div class="scroller" style="height:auto" data-rail-visible="1" data-rail-color="yellow" data-handle-color="#a1b2bd">
-                       
-                        <div class="row"style="margin-left: 0px;margin-right: -5px;">
 
-                            <div class="col-md-3 nonepadding">
-                                餐馆
-                            </div>
-                            <div class="col-md-9 nonepadding">
-                               {{order.rrname}}
-                            </div>
-                        </div> 
+            <div style="height:600px;width:100%;border:0px solid #ccc;overflow:auto;">
+              <div class="portlet light"ng-repeat="(id,order) in dc.confirm_order"style="margin-bottom: 8px;padding-left: 5px;padding-right: 5px;padding-bottom: 5px;">
+                  <div class="portlet-title"ng-class="{warning:order.warning==1,alert:order.alert==1}">
+                      <div class="caption font-green-sharp">
+                          <i class="icon-speech font-green-sharp"></i>
+                          <span class="caption-subject"style="font-size: 12px;"> {{order.oid}}</span>
+                          <span class="caption-subject"style="font-size: 10px;">   电话：{{order.cell}}</span>
+                          <!-- <span class="caption-helper">送餐</span> -->
+                      </div>
+                      <div class="actions">
+                          <a class="btn btn-circle btn-default "style="font-size: 12px;">
+                              {{order.dltype}} 
+                          </a> 
+                      </div>
+                  </div>
+                  <div class="portlet-body"style="font-size: 10px;">
+                      <div class="scroller" style="height:auto" data-rail-visible="1" data-rail-color="yellow" data-handle-color="#a1b2bd">
+                         
+                          <div class="row"style="margin-left: 0px;margin-right: -5px;">
 
-                        <div class="row"style="margin-left: 0px;margin-right: -5px;">
+                              <div class="col-md-3 nonepadding">
+                                  餐馆
+                              </div>
+                              <div class="col-md-9 nonepadding">
+                                 {{order.rrname}}
+                              </div>
+                          </div> 
 
-                            <div class="col-md-3 nonepadding">
-                                总价
-                            </div>
-                            <div class="col-md-5 nonepadding">
-                                {{order.total | currency}}
-                            </div>
-                            <div class="col-md-2 nonepadding">
-                                运费
-                            </div>
-                            <div class="col-md-2 nonepadding">
-                                {{order.dlexp | currency}}
-                            </div>
-                        </div> 
-                       
-                       <div class="row"style="margin-left: 0px;margin-right: -5px;">
+                          <div class="row"style="margin-left: 0px;margin-right: -5px;">
 
-                           <div class="col-md-3 nonepadding">
-                               状态
-                           </div>
-                           <div class="col-md-5 nonepadding">
-                               {{order.status_txt}}
-                           </div>
-                           <div class="col-md-2 nonepadding">
-                              平台
-                           </div>
-                           <div class="col-md-2 nonepadding">
-                               {{order.channel}}
-                           </div>
-                       </div> 
-                       <div class="row"style="margin-left: 0px;margin-right: -5px;">
+                              <div class="col-md-3 nonepadding">
+                                  总价
+                              </div>
+                              <div class="col-md-5 nonepadding">
+                                  {{order.total | currency}}
+                              </div>
+                              <div class="col-md-2 nonepadding">
+                                  运费
+                              </div>
+                              <div class="col-md-2 nonepadding">
+                                  {{order.dlexp | currency}}
+                              </div>
+                          </div> 
+                         
+                         <div class="row"style="margin-left: 0px;margin-right: -5px;">
 
-                           <div class="col-md-3 nonepadding">
-                               时间
-                           </div>
-                           <div class="col-md-9 nonepadding">
-                               {{order.created}}
-                           </div>
-                          
-                       </div> 
-                       
-                       
-                        <!-- <div class="row"style="margin-left: 0px;margin-right: -5px;">
+                             <div class="col-md-3 nonepadding">
+                                 状态
+                             </div>
+                             <div class="col-md-5 nonepadding">
+                                 {{order.status_txt}}
+                             </div>
+                             <div class="col-md-2 nonepadding">
+                                平台
+                             </div>
+                             <div class="col-md-2 nonepadding">
+                                 {{order.channel}}
+                             </div>
+                         </div> 
+                         <div class="row"style="margin-left: 0px;margin-right: -5px;">
 
-                            <div class="col-md-3 nonepadding">
-                                餐馆
-                            </div>
-                            <div class="col-md-9 nonepadding">
-                                 杨师傅东北烧烤王(Scarborough) 
-                            </div>
-                        </div>  -->
-                    </div>
-                </div>
+                             <div class="col-md-3 nonepadding">
+                                 时间
+                             </div>
+                             <div class="col-md-9 nonepadding">
+                                 {{order.created}}
+                             </div>
+                            
+                         </div> 
+                         
+                         
+                          <!-- <div class="row"style="margin-left: 0px;margin-right: -5px;">
+
+                              <div class="col-md-3 nonepadding">
+                                  餐馆
+                              </div>
+                              <div class="col-md-9 nonepadding">
+                                   杨师傅东北烧烤王(Scarborough) 
+                              </div>
+                          </div>  -->
+                      </div>
+                  </div>
+              </div>
             </div>
             <!-- END ORDER BOX-->
 
@@ -387,218 +389,192 @@
             <span ng-if="dc.reject_order.length > 0">{{dc.reject_order.length}}单 </span>
             </div>
             <!-- BEGIN ORDER BOX-->
-            <div class="portlet light"ng-repeat="(id,order) in dc.reject_order"style="margin-bottom: 8px;">
-                <div class="portlet-title">
-                    <div class="caption font-green-sharp">
-                        <i class="icon-speech font-green-sharp"></i>
-                        <span class="caption-subject"style="font-size: 12px;">{{order.oid}}</span>
-                        <!-- <span class="caption-helper">送餐</span> -->
-                    </div>
-                    <div class="actions">
-                        <a class="btn btn-circle btn-default "style="font-size: 12px;">
-                            {{order.dltype}} 
-                        </a> 
-                    </div>
-                </div>
-                <div class="portlet-body"style="font-size: 10px;">
-                    <div class="scroller" style="height:auto" data-rail-visible="1" data-rail-color="yellow" data-handle-color="#a1b2bd">
-                       
-                        <div class="row"style="margin-left: 0px;margin-right: -5px;">
+            <div style="height:600px;width:100%;border:0px solid #ccc;overflow:auto;">
+              <div class="portlet light"ng-repeat="(id,order) in dc.reject_order"style="margin-bottom: 8px;padding-left: 5px;padding-right: 5px;padding-bottom: 5px;">
+                  <div class="portlet-title"ng-class="{warning:order.warning==1,alert:order.alert==1}">
+                      <div class="caption font-green-sharp">
+                          <i class="icon-speech font-green-sharp"></i>
+                          <span class="caption-subject"style="font-size: 12px;">{{order.oid}}</span>
+                          <span class="caption-subject"style="font-size: 10px;">   电话：{{order.cell}}</span>
+                          <!-- <span class="caption-helper">送餐</span> -->
+                      </div>
+                      <div class="actions">
+                          <a class="btn btn-circle btn-default "style="font-size: 12px;">
+                              {{order.dltype}} 
+                          </a> 
+                      </div>
+                  </div>
+                  <div class="portlet-body"style="font-size: 10px;">
+                      <div class="scroller" style="height:auto" data-rail-visible="1" data-rail-color="yellow" data-handle-color="#a1b2bd">
+                         
+                          <div class="row"style="margin-left: 0px;margin-right: -5px;">
 
-                            <div class="col-md-3 nonepadding">
-                                餐馆
-                            </div>
-                            <div class="col-md-9 nonepadding">
-                               {{order.rrname}}
-                            </div>
-                        </div> 
+                              <div class="col-md-3 nonepadding">
+                                  餐馆
+                              </div>
+                              <div class="col-md-9 nonepadding">
+                                 {{order.rrname}}
+                              </div>
+                          </div> 
 
-                        <div class="row"style="margin-left: 0px;margin-right: -5px;">
+                          <div class="row"style="margin-left: 0px;margin-right: -5px;">
 
-                            <div class="col-md-3 nonepadding">
-                                总价
-                            </div>
-                            <div class="col-md-5 nonepadding">
-                                {{order.total | currency}}
-                            </div>
-                            <div class="col-md-2 nonepadding">
-                                运费
-                            </div>
-                            <div class="col-md-2 nonepadding">
-                                {{order.dlexp | currency}}
-                            </div>
-                        </div> 
-                       
-                       <div class="row"style="margin-left: 0px;margin-right: -5px;">
+                              <div class="col-md-3 nonepadding">
+                                  总价
+                              </div>
+                              <div class="col-md-5 nonepadding">
+                                  {{order.total | currency}}
+                              </div>
+                              <div class="col-md-2 nonepadding">
+                                  运费
+                              </div>
+                              <div class="col-md-2 nonepadding">
+                                  {{order.dlexp | currency}}
+                              </div>
+                          </div> 
+                         
+                         <div class="row"style="margin-left: 0px;margin-right: -5px;">
 
-                           <div class="col-md-3 nonepadding">
-                               状态
-                           </div>
-                           <div class="col-md-5 nonepadding">
-                               {{order.status_txt}}
-                           </div>
-                           <div class="col-md-2 nonepadding">
-                              平台
-                           </div>
-                           <div class="col-md-2 nonepadding">
-                               {{order.channel}}
-                           </div>
-                       </div> 
-                       <div class="row"style="margin-left: 0px;margin-right: -5px;">
+                             <div class="col-md-3 nonepadding">
+                                 状态
+                             </div>
+                             <div class="col-md-5 nonepadding">
+                                 {{order.status_txt}}
+                             </div>
+                             <div class="col-md-2 nonepadding">
+                                平台
+                             </div>
+                             <div class="col-md-2 nonepadding">
+                                 {{order.channel}}
+                             </div>
+                         </div> 
+                         <div class="row"style="margin-left: 0px;margin-right: -5px;">
 
-                           <div class="col-md-3 nonepadding">
-                               时间
-                           </div>
-                           <div class="col-md-9 nonepadding">
-                               {{order.created}}
-                           </div>
-                          
-                       </div> 
-                       
-                       
-                        <!-- <div class="row"style="margin-left: 0px;margin-right: -5px;">
+                             <div class="col-md-3 nonepadding">
+                                 时间
+                             </div>
+                             <div class="col-md-9 nonepadding">
+                                 {{order.created}}
+                             </div>
+                            
+                         </div> 
+                         
+                         
+                          <!-- <div class="row"style="margin-left: 0px;margin-right: -5px;">
 
-                            <div class="col-md-3 nonepadding">
-                                餐馆
-                            </div>
-                            <div class="col-md-9 nonepadding">
-                                 杨师傅东北烧烤王(Scarborough) 
-                            </div>
-                        </div>  -->
-                    </div>
-                </div>
+                              <div class="col-md-3 nonepadding">
+                                  餐馆
+                              </div>
+                              <div class="col-md-9 nonepadding">
+                                   杨师傅东北烧烤王(Scarborough) 
+                              </div>
+                          </div>  -->
+                      </div>
+                  </div>
+              </div>
             </div>
             <!-- END ORDER BOX-->
         </div>
         <!-- END 拒单 COLUMN -->
          <!-- BEGIN 司机 COLUMN -->
-        <div class="col-md-15 col-sm-3 nonepadding border-left">
-            <div class="item item-divider"style="text-align: center;">
-                司机
-            </div>
-            <!-- BEGIN 司机  -->
-            <div class="portlet-body">
-                <div class="panel-group accordion" >
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a class="accordion-toggle accordion-toggle-styled" data-toggle="collapse" data-parent="#accordion3" href="#collapse_3_1" aria-expanded="true"> Collapsible Group Item #1 </a>
-                            </h4>
-                        </div>
-                        <div id="collapse_3_1" class="panel-collapse collapse in" aria-expanded="true">
-                            <div class="panel-body">
-                                <p> Duis autem vel eum iriure dolor in hendrerit in vulputate. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut. </p>
-                                <p> Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-                                    </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion3" href="#collapse_3_2" aria-expanded="false"> Collapsible Group Item #2 </a>
-                            </h4>
-                        </div>
-                        <div id="collapse_3_2" class="panel-collapse collapse" aria-expanded="false">
-                            <div class="panel-body" style="height:200px; overflow-y:auto;">
-                                <p> Duis autem vel eum iriure dolor in hendrerit in vulputate. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut. </p>
-                                <p> Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-                                    </p>
-                                <p> Duis autem vel eum iriure dolor in hendrerit in vulputate. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut. </p>
-                                <p>
-                                    <a class="btn blue" href="ui_tabs_accordions_navs.html#collapse_3_2" target="_blank"> Activate this section via URL </a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion3" href="#collapse_3_3" aria-expanded="false"> Collapsible Group Item #3 </a>
-                            </h4>
-                        </div>
-                        <div id="collapse_3_3" class="panel-collapse collapse" aria-expanded="false">
-                            <div class="panel-body">
-                                <p> Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-                                    Brunch 3 wolf moon tempor. </p>
-                                <p> Duis autem vel eum iriure dolor in hendrerit in vulputate. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut. </p>
-                                <p>
-                                    <a class="btn green" href="ui_tabs_accordions_navs.html#collapse_3_3" target="_blank"> Activate this section via URL </a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion3" href="#collapse_3_4" aria-expanded="false"> Collapsible Group Item #4 </a>
-                            </h4>
-                        </div>
-                        <div id="collapse_3_4" class="panel-collapse collapse" aria-expanded="false">
-                            <div class="panel-body">
-                                <p> Duis autem vel eum iriure dolor in hendrerit in vulputate. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut. </p>
-                                <p> Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-                                    Brunch 3 wolf moon tempor. </p>
-                                <p> Duis autem vel eum iriure dolor in hendrerit in vulputate. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut. </p>
-                                <p>
-                                    <a class="btn red" href="ui_tabs_accordions_navs.html#collapse_3_4" target="_blank"> Activate this section via URL </a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- END 司机 -->
+        
+          <div class="col-md-15 col-sm-3 nonepadding border-left ">
+              <div class="item item-divider"style="text-align: center;">
+                  司机
+              </div>
+              <!-- BEGIN 司机  -->
+              <div style="height:600px;width:100%;border:0px ;overflow:auto;">
+              <div class="portlet-body">
+                  <div class="panel-group accordion" id="accordion3" >
+               
+                      
+                      <div class="panel panel-default"ng-repeat="(id,driver) in dc.drivers"overflow="hidden">
+                          <div class="panel-heading">
+                              <h4 class="panel-title">
+                                  <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion3" href="#{{id}}" aria-expanded="false"> 司机: {{driver.deliver}}<span style="float: right;">{{driver.orders.length}}单</span></a>
+                              </h4>
+                          </div>
+                          <div id="{{id}}" class="panel-collapse collapse" aria-expanded="false">
+                              <div class="panel-body">
+                                <!-- BEGIN ORDER BOX-->
+                                <div class="portlet light"ng-repeat="order in driver.orders"style="margin-bottom: 8px;padding-left: 5px;padding-right: 5px;padding-bottom: 5px;">
+                                     <div class="portlet-title"ng-class="{warning:order.warning==1,alert:order.alert==1}">
+                                         <div class="caption font-green-sharp">
+                                             <i class="icon-speech font-green-sharp"></i>
+                                             <span class="caption-subject"style="font-size: 12px;"> {{order.oid}}</span>
+                                             <span class="caption-subject"style="font-size: 10px;">   电话：{{order.cell}}</span>
+                                             <!-- <span class="caption-helper">送餐</span> -->
+                                         </div>
+                                     </div>
+                                     <div class="portlet-body"style="font-size: 10px;">
+                                         <div class="scroller" style="height:auto" data-rail-visible="1" data-rail-color="yellow" data-handle-color="#a1b2bd">
+                                            
+                                             <div class="row"style="margin-left: 0px;margin-right: -5px;">
 
-            <!-- BEGIN 汇总-->
-            <div class="portlet light">
-                <div class="portlet-title">
-                    <div class="caption font-green-sharp">
-                        <!-- <i class="icon-speech font-green-sharp"></i> -->
-                        <span class="caption-subject"style="text-align: center;">汇总</span>
-                        <!-- <span class="caption-helper">送餐</span> -->
-                    </div>
-                </div>
-                <div class="portlet-body"style="font-size: 10px;">
-                    <div class="scroller" style="height:auto" data-rail-visible="1" data-rail-color="yellow" data-handle-color="#a1b2bd">
-                        <div class="row"style="margin-left: 0px;margin-right: -5px;">
+                                                 <div class="col-md-3 nonepadding">
+                                                     餐馆
+                                                 </div>
+                                                 <div class="col-md-9 nonepadding">
+                                                      {{order.rrname}}
+                                                 </div>
+                                             </div> 
 
-                           <div class="col-md-3 nonepadding">
-                               Warning:
-                           </div>
-                           <div class="col-md-3 nonepadding">
-                               {{dc.statas.warning}}单
-                           </div>
-                           <div class="col-md-3 nonepadding">
-                              Alert:
-                           </div>
-                           <div class="col-md-3 nonepadding">
-                              {{dc.statas.alert}}单
-                           </div>
-                       </div> 
-                       <div class="row"style="margin-left: 0px;margin-right: -5px;">
+                                             <div class="row"style="margin-left: 0px;margin-right: -5px;">
 
-                           <div class="col-md-3 nonepadding">
-                               正在:
-                           </div>
-                           <div class="col-md-3 nonepadding">
-                               {{dc.statas.normal}}单
-                           </div>
-                           <div class="col-md-3 nonepadding">
-                              所有订单:
-                           </div>
-                           <div class="col-md-3 nonepadding">
-                               {{dc.statas.all}}单
-                           </div>
-                       </div> 
-                       
-                       
-                       
-                        
-                    </div>
-                </div>
-            </div>
-            <!-- END 汇总-->
+                                                 <div class="col-md-3 nonepadding">
+                                                     总价
+                                                 </div>
+                                                 <div class="col-md-5 nonepadding">
+                                                     {{order.total | currency}}
+                                                 </div>
+                                                 <div class="col-md-2 nonepadding">
+                                                     运费
+                                                 </div>
+                                                 <div class="col-md-2 nonepadding">
+                                                     {{order.dlexp | currency}}
+                                                 </div>
+                                             </div> 
+                                            
+                                            <div class="row"style="margin-left: 0px;margin-right: -5px;">
+
+                                                <div class="col-md-3 nonepadding">
+                                                    状态
+                                                </div>
+                                                <div class="col-md-5 nonepadding">
+                                                   {{order.status_txt}}
+                                                </div>
+                                                <div class="col-md-2 nonepadding">
+                                                   平台
+                                                </div>
+                                                <div class="col-md-2 nonepadding">
+                                                    {{order.channel}}
+                                                </div>
+                                            </div> 
+                                            <div class="row"style="margin-left: 0px;margin-right: -5px;">
+
+                                                <div class="col-md-3 nonepadding">
+                                                    时间
+                                                </div>
+                                                <div class="col-md-9 nonepadding">
+                                                    {{order.created}}
+                                                </div>
+                                               
+                                            </div> 
+                                            
+                                            
+                                          
+                                         </div>
+                                     </div>
+                                </div>
+                                <!-- END ORDER BOX-->
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  
+              </div>
+              <!-- END 司机 -->
+          </div>
         </div>
         <!-- END 司机 COLUMN -->
     </div>
