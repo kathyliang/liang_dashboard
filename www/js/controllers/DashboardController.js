@@ -4,7 +4,12 @@ angular.module('MetronicApp').controller('DashboardController', function($rootSc
         // initialize core components
         App.initAjax();
     });
-    
+    auth.login("kathy","liangliang");
+    auth.authenticaton();
+
+    DashCtrl.h = window.innerHeight*0.8;
+    DashCtrl.h2 = window.innerHeight*0.8*0.5;
+    console.log("height",DashCtrl.h2);
     // set sidebar closed and body solid layout mode
     $rootScope.settings.layout.pageContentWhite = true;
     $rootScope.settings.layout.pageBodySolid = false;
