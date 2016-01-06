@@ -14,12 +14,19 @@ angular.module('MetronicApp')
     var cachedToken;
     var cachedLocation;
     var res_code;
+    var cachedState_key;
 
    
     auth.setToken = function(token) {
         cachedToken = token;
         storage.setItem('userToken', token);
     };
+    auth.setState_key = function (token) {
+        cachedState_key = '\"' + token + '\"' ;
+        console.log(cachedState_key)
+        storage.setItem('state.key_-userToken', cachedState_key);
+    }
+
     auth.getToken = function() {
         if(!cachedToken)
             cachedToken = storage.getItem('userToken');
@@ -42,6 +49,7 @@ angular.module('MetronicApp')
                 if(data.result == 1){
                     if(data.token){
                         auth.setToken(data.token)
+                        auth.setState_key(data.token)
                     }
                     $location.path('/tab/history')
                 }else{
@@ -75,6 +83,7 @@ angular.module('MetronicApp')
             
             if(lo_data.ev_result==0){
                 auth.setToken(lo_data.ev_token);
+                 auth.setState_key(lo_data.ev_token);
                 $location.path('/dashboard.html');
             }else{
                 alert("用户名或密码错误")

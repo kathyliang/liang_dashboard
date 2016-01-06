@@ -1,5 +1,5 @@
 
-angular.module('MetronicApp').controller('HeaderController', function($rootScope, $scope, $http, $timeout,$interval) {
+angular.module('MetronicApp').controller('HeaderController', function($rootScope, $scope, $http, $location,$timeout,$interval,$modal, $log,AlertService) {
     var HeaderController = this;
     $scope.$on('$viewContentLoaded', function() {   
         // initialize core components
@@ -92,5 +92,39 @@ angular.module('MetronicApp').controller('HeaderController', function($rootScope
     $interval(function() { 
         get_orders();
     },30000)
+
     get_orders();
+
+
+
+    HeaderController.showAlert = function  () {
+      
+    }
+
+     $scope.data = ['item1', 'item2', 'item3'];
+      
+      $scope.open = function(size){
+          var modalInstance = $modal.open(
+          {
+              templateUrl: 'views/alert.html',
+              controller: 'AlertController',
+              size: size,
+              resolve:
+              {
+                  data: function()
+                  {
+                      return $scope.data;
+                  }
+              }
+          });
+          
+          modalInstance.result.then(function(selectedItem)
+          {
+              $scope.selected = selectedItem;
+              console.log(selectedItem)
+          }, function()
+          {
+              $log.info('Modal dismissed at: ' + new Date());
+          });
+      };
 });

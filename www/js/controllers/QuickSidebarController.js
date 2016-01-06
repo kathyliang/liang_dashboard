@@ -1,4 +1,3 @@
-
 angular.module('MetronicApp').controller('QuickSidebarController', function($rootScope, $scope, $http, $timeout,$interval) {
     var QuickSidebarController = this;
     // $scope.$on('$viewContentLoaded', function() {   

@@ -1,0 +1,17 @@
+<div class="modal-header">
+    <h3 class="modal-title">单号:{{occ.oid}}</h3>
+</div>
+<div class="modal-body">
+    <iframe width="100%" 
+    		height="400" 
+    		style="overflow-y: hidden;"
+    		scrolling="no" 
+        	seamless="seamless" 
+    		ng-src="{{occ.url}}">
+  
+	</iframe>
+    
+</div>
+<div class="modal-footer">
+    <button class="btn btn-warning" ng-click="cancel()">Close</button>
+</div>
