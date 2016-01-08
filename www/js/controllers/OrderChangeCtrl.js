@@ -11,6 +11,8 @@ angular.module('MetronicApp').controller('OrderChangeCtrl', function($scope,$sce
       var lv_c_lng = data.c_lng;
       var lv_r_lat = data.r_lat;
       var lv_r_lng = data.r_lng;
+      var oid = data.oid;
+      OrderChangeCtrl.oid = oid;
 
       //tolls test
       // var lv_c_lat = 43.591499;

@@ -34,15 +34,16 @@ angular.module('MetronicApp').controller('DashboardController', function($rootSc
       
       
     };
-    DashCtrl.openMap = function (c_lat,c_lng,r_lat,r_lng) {
+    DashCtrl.openMap = function (oid,c_lat,c_lng,r_lat,r_lng) {
       var size = 'lg'
       var eo_data = {};
       eo_data.c_lat = c_lat;
       eo_data.c_lng = c_lng;
       eo_data.r_lat = r_lat;
       eo_data.r_lng = r_lng;
+      eo_data.oid   = oid;
       eo_data.type = "maps"
-      console.log(eo_data.type)
+      console.log("hhahahaha",eo_data.oid)
       DashCtrl.openPopup(size,eo_data);
       
       
@@ -129,81 +130,96 @@ angular.module('MetronicApp').controller('DashboardController', function($rootSc
                 }
             }); 
             
-            _.forEach(DashCtrl.delivering_order,function(order) {
-               var driver_index = _.findIndex(ia_drivers, function(driver) {
-                  return driver.deliver == order.deliver;
-                });
-               // console.log('driver',driver_index)
-                if(driver_index == '-1'){
-                    var driver = {}
-                    driver.deliver = order.deliver;
-                    driver.orders = [];
-                    driver.orders.push(order)
-                    ia_drivers.push(driver)
-                }else{
-                    ia_drivers[driver_index].orders.push(order)
-                }
-            });  
-            // console.log(DashCtrl.delivering_order) 
-            console.log("1", ia_drivers)
-            // 
-            if(DashCtrl.drivers.length == 0){
-                DashCtrl.drivers = ia_drivers;
-            }else{
-                // DashCtrl.drivers == ia_drivers;
-                _.forEach(ia_drivers,function (driver) {
-                    console.log("2",driver);
-                    var driver_index = _.findIndex(DashCtrl.drivers, function(d_driver) {
-                       return d_driver.deliver == driver.deliver;
+            // _.forEach(DashCtrl.delivering_order,function(order) {
+            //    var driver_index = _.findIndex(ia_drivers, function(driver) {
+            //       return driver.deliver == order.deliver;
+            //     });
+            //    // console.log('driver',driver_index)
+            //     if(driver_index == '-1'){
+            //         var driver = {}
+            //         driver.deliver = order.deliver;
+            //         driver.orders = [];
+            //         driver.orders.push(order)
+            //         ia_drivers.push(driver)
+            //     }else{
+            //         ia_drivers[driver_index].orders.push(order)
+            //     }
+            // });  
+            // // console.log(DashCtrl.delivering_order) 
+            // console.log("1", ia_drivers)
+            // // 
+            // if(DashCtrl.drivers.length == 0){
+            //     DashCtrl.drivers = ia_drivers;
+            // }else{
+            //     // DashCtrl.drivers == ia_drivers;
+            //     _.forEach(ia_drivers,function (driver) {
+            //         console.log("2",driver);
+            //         var driver_index = _.findIndex(DashCtrl.drivers, function(d_driver) {
+            //            return d_driver.deliver == driver.deliver;
 
-                     });
-                    if (driver_index == -1){
-                        DashCtrl.drivers.push(driver);
-                    }else{
-                        _.forEach(driver.orders,function (l_order) {
-                            console.log("4",l_order);
-                            var order_index = _.findIndex(DashCtrl.drivers[driver_index].orders, function(d_order) {
-                                return d_order.oid == l_order.oid;
-                            });
-                            if (order_index == -1) {
-                               DashCtrl.drivers[driver_index].orders.push(l_order);
-                            };
-                        })
+            //          });
+            //         if (driver_index == -1){
+            //             DashCtrl.drivers.push(driver);
+            //         }else{
+            //             _.forEach(driver.orders,function (l_order) {
+            //                 console.log("4",l_order);
+            //                 var order_index = _.findIndex(DashCtrl.drivers[driver_index].orders, function(d_order) {
+            //                     return d_order.oid == l_order.oid;
+            //                 });
+            //                 if (order_index == -1) {
+            //                    DashCtrl.drivers[driver_index].orders.push(l_order);
+            //                 };
+            //             })
 
-                    }
-                });
-                _.forEach(DashCtrl.drivers,function (driver) {
-                    console.log("11",driver);
-                    var driver_ind = _.findIndex(ia_drivers, function(d_driver) {
-                       return d_driver.deliver == driver.deliver;
+            //         }
+            //     });
+            //     _.forEach(DashCtrl.drivers,function (driver) {
+            //         console.log("11",driver);
+            //         var driver_ind = _.findIndex(ia_drivers, function(d_driver) {
+            //            return d_driver.deliver == driver.deliver;
 
-                     });
-                    if (driver_ind == -1){
-                        var remove_driver = _.findIndex(DashCtrl.drivers, function(d_driver) {
-                           return d_driver.deliver == driver.deliver;
+            //          });
+            //         if (driver_ind == -1){
+            //             var remove_driver = _.findIndex(DashCtrl.drivers, function(d_driver) {
+            //                return d_driver.deliver == driver.deliver;
 
-                         });
-                        DashCtrl.drivers.splice(remove_order, 1);
-                    }else{
-                        _.forEach(driver.orders,function (l_order) {
-                            console.log("14",l_order);
-                            var order_ind = _.findIndex(ia_drivers[driver_ind].orders, function(d_order) {
-                                return d_order.oid == l_order.oid;
-                            });
-                            console.log("15",order_ind)
-                            console.log("16",ia_drivers[driver_ind].orders)
-                            console.log("17",DashCtrl.drivers[driver_ind].orders)
-                            if (order_ind == -1) {
-                                var remove_order = _.findIndex(DashCtrl.drivers[driver_ind].orders, function(d_order) {
-                                    return d_order.oid == l_order.oid;
-                                });
-                               DashCtrl.drivers[driver_ind].orders.splice(remove_order, 1);
-                            };
-                        })
+            //              });
+            //             DashCtrl.drivers.splice(remove_order, 1);
+            //         }else{
+            //             _.forEach(driver.orders,function (l_order) {
+            //                 console.log("14",l_order);
+            //                 var order_ind = _.findIndex(ia_drivers[driver_ind].orders, function(d_order) {
+            //                     return d_order.oid == l_order.oid;
+            //                 });
+            //                 console.log("15",order_ind)
+            //                 console.log("16",ia_drivers[driver_ind].orders)
+            //                 console.log("17",DashCtrl.drivers[driver_ind].orders)
+            //                 if (order_ind == -1) {
+            //                     var remove_order = _.findIndex(DashCtrl.drivers[driver_ind].orders, function(d_order) {
+            //                         return d_order.oid == l_order.oid;
+            //                     });
+            //                    DashCtrl.drivers[driver_ind].orders.splice(remove_order, 1);
+            //                 };
+            //             })
                         
-                    }
-                });
-            }
+            //         }
+            //     });
+            // }
+            _.forEach(DashCtrl.delivering_order,function(order) {
+              var driver_index = _.findIndex(DashCtrl.drivers, function(driver) {
+                 return driver.deliver == order.deliver;
+               });
+              // console.log('driver',driver_index)
+               if(driver_index == '-1'){
+                   var driver = {}
+                   driver.deliver = order.deliver;
+                   driver.orders = [];
+                   driver.orders.push(order)
+                   DashCtrl.drivers.push(driver)
+               }else{
+                   DashCtrl.drivers[driver_index].orders.push(order)
+               }
+           });  
 
         };
     };
