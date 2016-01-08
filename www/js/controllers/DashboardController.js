@@ -206,20 +206,26 @@ angular.module('MetronicApp').controller('DashboardController', function($rootSc
             //     });
             // }
             _.forEach(DashCtrl.delivering_order,function(order) {
-              var driver_index = _.findIndex(DashCtrl.drivers, function(driver) {
+              console.log("delivering_order",DashCtrl.delivering_order);
+              console.log("drivers",ia_drivers);
+              var driver_index = _.findIndex(ia_drivers, function(driver) {
                  return driver.deliver == order.deliver;
+                 console.log("driver111",driver);
+                 console.log("111",driver_index);
                });
+              console.log("driver111",driver);
               // console.log('driver',driver_index)
                if(driver_index == '-1'){
-                   var driver = {}
-                   driver.deliver = order.deliver;
-                   driver.orders = [];
-                   driver.orders.push(order)
-                   DashCtrl.drivers.push(driver)
+                   var lo_driver = {}
+                   lo_driver.deliver = order.deliver;
+                   lo_driver.orders = [];
+                   lo_driver.orders.push(order)
+                   ia_drivers.push(lo_driver)
                }else{
-                   DashCtrl.drivers[driver_index].orders.push(order)
+                   ia_drivers[driver_index].orders = driver.orders;
                }
-           });  
+           }); 
+
 
         };
     };
