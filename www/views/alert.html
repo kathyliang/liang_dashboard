@@ -3,28 +3,28 @@
 </div>
 <div class="form-group" style="padding-left: 15px;padding-right: 15px;">
     <label>类型</label>
-    <select class="form-control" >
-        <option ng-repeat="item in items">{{item}}</option>
+    <select class="form-control" ng-model="data.cate">
+        <option ng-repeat="item in ac.notes">{{item.text}}</option>
     </select>
 </div>
 
 <div class="form-group" style="padding-left: 15px;padding-right: 15px;">
     <label>单号(optional)</label>
-    <div class="input-icon">
-        <input type="text" class="form-control"> 
+    <div class="input-icon" >
+        <input type="text" class="form-control" ng-model="data.oid"> 
     </div>
 </div>
 
 <div class="form-group" style="padding-left: 15px;padding-right: 15px;">
     <label>tel(optional)</label>
     <div class="input-icon">
-        <input type="text" class="form-control"> 
+        <input type="text" class="form-control"  ng-model="data.tel"> 
     </div>
 </div>
 
-<div class="form-group" style="padding-left: 15px;padding-right: 15px;">
+<div class="form-group" style="padding-left: 15px;padding-right: 15px;" >
     <label>备注</label>
-    <textarea class="form-control" rows="3"></textarea>
+    <textarea class="form-control" rows="3"ng-model="data.notes"></textarea>
 </div>
 
 <div class="modal-footer">

@@ -213,7 +213,7 @@ angular.module('MetronicApp').controller('DashboardController', function($rootSc
                  console.log("driver111",driver);
                  console.log("111",driver_index);
                });
-              console.log("driver111",driver);
+              // console.log("driver111",driver);
               // console.log('driver',driver_index)
                if(driver_index == '-1'){
                    var lo_driver = {}
@@ -222,7 +222,7 @@ angular.module('MetronicApp').controller('DashboardController', function($rootSc
                    lo_driver.orders.push(order)
                    ia_drivers.push(lo_driver)
                }else{
-                   ia_drivers[driver_index].orders = driver.orders;
+                   // ia_drivers[driver_index].orders = driver.orders;
                }
            }); 
 
