@@ -36,18 +36,19 @@ angular.module('MetronicApp')
     
     auth.doAuth = function() {
         var $http =  $injector.get('$http')
-        $http.get(API_URL + 'MobLogin/loginwc').
+        $http.get(API_URL + 'MobMonitor/Auth').
             success(function(data, status, headers,conifg) {
                 console.log(data)
-                if(data.result == 1){
+                if(data.result == 0){
                     if(data.token){
                         auth.setToken(data.token)
                     }
-                    $location.path('/tab/history')
+                    // $location.path('/tab/history')
+                    // window.location="/index.html"
                 }else{
                     console.log('remove token')
                     auth.removeToken(); 
-                    $location.path('/login')
+                     window.location="/login.html"
                 }
                 
             })
@@ -75,8 +76,10 @@ angular.module('MetronicApp')
             
             if(lo_data.ev_result==0){
                 auth.setToken(lo_data.ev_token);
-                $location.path('/dashboard.html');
+                // $location.path('/dashboard.html');
+                window.location="/index.html"
             }else{
+                console.log('用户名或密码错误')
                 alert("用户名或密码错误")
             }
 
@@ -86,6 +89,10 @@ angular.module('MetronicApp')
 
 
     }
+    auth.logout = function() {
+        auth.removeToken();
+        window.location="/login.html"
+    };
     auth.authenticaton = function () {
         var $http =  $injector.get('$http')
         $http({
@@ -99,6 +106,7 @@ angular.module('MetronicApp')
             }else{
                
                 auth.removeToken();
+                window.location="/login.html"
                 alert("请重新输入用户名和密码");
             }
 
