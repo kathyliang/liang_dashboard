@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!-- 
-Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.6
-Version: 4.5.3
+Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.5
+Version: 4.5.2
 Author: KeenThemes
 Website: http://www.keenthemes.com/
 Contact: support@keenthemes.com
@@ -13,13 +13,13 @@ License: You must have a valid license purchased only from themeforest(the above
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
 <!--[if !IE]><!-->
-<html lang="en">
+<html lang="en" data-ng-app="MetronicApp">
     <!--<![endif]-->
     <!-- BEGIN HEAD -->
 
     <head>
         <meta charset="utf-8" />
-        <title>Metronic | User Login 6</title>
+        <title>馋猫客服系统</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta content="" name="description" />
@@ -48,28 +48,50 @@ License: You must have a valid license purchased only from themeforest(the above
         <link rel="shortcut icon" href="favicon.ico" /> </head>
     <!-- END HEAD -->
 
-    <body class=" login">
-        <!-- BEGIN : LOGIN PAGE 5-2 -->
-        <form class="form-vertical login-form" action="index.html">
+    <body class=" login" data-ng-controller="AuthController as ac">
+        <!-- BEGIN : LOGIN PAGE 5-1 -->
         <div class="user-login-5">
             <div class="row bs-reset">
+                <div class="col-md-6 bs-reset">
+                    <div class="login-bg" style="background-image:url(../assets/pages/img/login/bg1.jpg)">
+                        <img class="login-logo" src="../assets/pages/img/login/logo.png" /> </div>
+                </div>
                 <div class="col-md-6 login-container bs-reset">
-                    <img class="login-logo login-6" src="../assets/pages/img/login/login-invert.png" />
                     <div class="login-content">
-                        <h1>Metronic Admin Login</h1>
-                        <p> Lorem ipsum dolor sit amet, coectetuer adipiscing elit sed diam nonummy et nibh euismod aliquam erat volutpat. Lorem ipsum dolor sit amet, coectetuer adipiscing. </p>
-                        <form action="javascript:;" class="login-form" method="post">
+                        <h1>欢迎登陆馋猫客服系统</h1>
+                        
+                        
+                        <!-- <form  action="javascript:;" class="login-form" method="post"> -->
+                        <form ng-submit="ac.login()"action="javascript:;" class="login-form" >
+                                <div class="col-xs-6">
+                                    <input class="form-control form-control-solid placeholder-no-fix" 
+                                    type="text" 
+                                    autocomplete="off" 
+                                    placeholder="Username" 
+                                    name="username" 
+                                    ng-model="ac.username"
+                                    required/> </div>
+                                <div class="col-xs-6">
+                                    <input class="form-control form-control-solid placeholder-no-fix" 
+                                    type="password" 
+                                    autocomplete="off" 
+                                    placeholder="Password" 
+                                    name="password" 
+                                    ng-model="ac.password"
+                                    required/> </div>
+                            </div>
                             <div class="alert alert-danger display-hide">
                                 <button class="close" data-close="alert"></button>
                                 <span>Enter any username and password. </span>
                             </div>
                             <div class="row">
-                                <div class="col-xs-6">
-                                    <input class="form-control form-control-solid placeholder-no-fix form-group" type="text" autocomplete="off" placeholder="Username" name="username" required/> </div>
-                                <div class="col-xs-6">
-                                    <input class="form-control form-control-solid placeholder-no-fix form-group" type="password" autocomplete="off" placeholder="Password" name="password" required/> </div>
+                                <div class="col-sm-4">
+                                </div>
+                                <div class="col-sm-8 text-right">
+                                    <button class="btn blue" >Sign In</button>
+                                </div>
                             </div>
-                            <div class="row">
+                           <!--  <div class="row">
                                 <div class="col-sm-4">
                                     <div class="rem-password">
                                         <p>Remember Me
@@ -83,10 +105,11 @@ License: You must have a valid license purchased only from themeforest(the above
                                     </div>
                                     <button class="btn blue" type="submit">Sign In</button>
                                 </div>
-                            </div>
+                            </div> -->
+                            
                         </form>
                         <!-- BEGIN FORGOT PASSWORD FORM -->
-                        <form class="forget-form" action="javascript:;" method="post">
+                        <!-- <form class="forget-form" action="javascript:;" method="post">
                             <h3 class="font-green">Forgot Password ?</h3>
                             <p> Enter your e-mail address below to reset your password. </p>
                             <div class="form-group">
@@ -95,13 +118,13 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <button type="button" id="back-btn" class="btn grey btn-default">Back</button>
                                 <button type="submit" class="btn blue btn-success uppercase pull-right">Submit</button>
                             </div>
-                        </form>
+                        </form> -->
                         <!-- END FORGOT PASSWORD FORM -->
                     </div>
                     <div class="login-footer">
                         <div class="row bs-reset">
-                            <div class="col-xs-5 bs-reset">
-                                <ul class="login-social">
+                            <div class="col-xs-4 bs-reset">
+                               <!--  <ul class="login-social">
                                     <li>
                                         <a href="javascript:;">
                                             <i class="icon-social-facebook"></i>
@@ -117,28 +140,24 @@ License: You must have a valid license purchased only from themeforest(the above
                                             <i class="icon-social-dribbble"></i>
                                         </a>
                                     </li>
-                                </ul>
+                                </ul> -->
                             </div>
-                            <div class="col-xs-7 bs-reset">
+                            <div class="col-xs-8 bs-reset">
                                 <div class="login-copyright text-right">
-                                    <p>Copyright &copy; 馋猫 2016</p>
+                                    <p>Copyright &copy; Chanmao.ca 2016</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 bs-reset">
-                    <div class="login-bg"> </div>
-                </div>
             </div>
         </div>
-        <!-- END : LOGIN PAGE 5-2 -->
+        <!-- END : LOGIN PAGE 5-1 -->
         <!--[if lt IE 9]>
-<script src="../assets/global/plugins/respond.min.js"></script>
-<script src="../assets/global/plugins/excanvas.min.js"></script> 
-<![endif]-->
+            <script src="../assets/global/plugins/respond.min.js"></script>
+            <script src="../assets/global/plugins/excanvas.min.js"></script> 
+        <![endif]-->
         <!-- BEGIN CORE PLUGINS -->
-
         <script src="../assets/global/plugins/jquery.min.js" type="text/javascript"></script>
         <script src="../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="../assets/global/plugins/js.cookie.min.js" type="text/javascript"></script>
@@ -162,6 +181,10 @@ License: You must have a valid license purchased only from themeforest(the above
         <!-- END PAGE LEVEL SCRIPTS -->
         <!-- BEGIN THEME LAYOUT SCRIPTS -->
         <!-- END THEME LAYOUT SCRIPTS -->
+        <script src="../assets/global/plugins/angularjs/angular.min.js" type="text/javascript"></script>
+        <script src="js/controllers/AuthController.js" type="text/javascript"></script>
+        <script src="js/service/auth_service.js" type="text/javascript"></script>  
+
     </body>
 
 </html>

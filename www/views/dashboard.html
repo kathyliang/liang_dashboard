@@ -16,400 +16,215 @@
     <div class="row">
 
         <div class="col-md-15 col-sm-3 nonepadding border-left">
-            <div class="item item-divider"style="text-align: center;">
-                改运费
-            <span ng-if="dc.change_addr_order.length > 0">{{dc.change_addr_order.length}}单 </span>
-            </div>
-            
-            <ion-scroll style="height: 50%">
-            <!-- BEGIN 改运费-->
-            <div style="height:{{dc.h2}}px;width:100%;border:0px solid #ccc;overflow:auto;">
-              <div class="portlet light" ng-repeat="(id,order) in dc.change_addr_order"style="margin-bottom: 8px;padding-left: 5px;padding-right: 5px;padding-bottom: 5px;">
-                  <div class="portlet-title"ng-class="{warning:order.warning==1,alert:order.alert==1}">
-                      <div class="caption font-green-sharp"ng-class="{warning:order.warning==1,alert:order.alert==1}"
-                      data-ng-click="dc.openMap(order.oid,order.c_lat,order.c_lng,order.r_lat,order.r_lng)">
-                          <i 
-                            class=" icon-pin font-green-sharp"
+
+             
+                <div class="item item-divider"style="text-align: center;height: 39px;font-size: 21px;padding: 5px;background-color: #f7ca18;color: #ffffff;">
+                    改运费
+                <span ng-if="dc.change_addr_order.length > 0">{{dc.change_addr_order.length}}单 </span>
+                </div>
+               <ion-scroll style="height: 50%">
+                <!-- BEGIN 改运费 class="scroller"-->
+                <div class="order_col_box "style="height:{{dc.h2}}px;">
+                    <div  class="portlet order_box "
+                          ng-repeat="(id,order) in dc.change_addr_order">
+                       <div  class="portlet-title order_header yellow"
+                             ng-class="{warning:order.warning==1,alert:order.alert==1}">
+                           <div class=" order_title"data-ng-click="dc.openMap(order.oid,order.c_lat,order.c_lng,order.r_lat,order.r_lng)">
+                      
+                          <i class="icon-pin" style="color: #ffffff"
                             class="dropdown-toggle"  
                             data-hover="dropdown" 
-                            data-close-others="true"
-                            >
-                          </i>
-                          <span class="caption-subject"style="font-size: 12px;"> {{order.oid}}</span>
-                          <span class="caption-subject"style="font-size: 10px;">   电话：{{order.cell}}</span>
-                          <!-- <span class="caption-helper">送餐</span> -->
-                      </div>
-                      <div class="actions">
-                          <a  class="btn btn-circle btn-default "class="dropdown-toggle"  data-hover="dropdown" data-close-others="true"style="font-size: 12px;"data-ng-click="dc.openOrderChange(order.oid,2)"> 
-                            {{order.dltype}} 
-                        </a>
-                      </div>
-                  </div>
-                  <div class="portlet-body"style="font-size: 10px;">
-                      <div class="scroller" style="height:auto" data-rail-visible="1" data-rail-color="yellow" data-handle-color="#a1b2bd">
-                         
-                          <div class="row"style="margin-left: 0px;margin-right: -5px;">
+                            data-close-others="true"></i>
+                          
+                               <span class="caption-subject"style="font-size: 12px;">{{order.oid}}</span>
+                               <span class="caption-subject"style="font-size: 10px;">   电话：{{order.cell}}</span>
+                               <!-- <span class="caption-helper">送餐</span> -->
+                           </div>
+                           <div class="actions">
+                               <a class="btn btn-circle btn-default "style="font-size: 12px;"data-ng-click="dc.openOrderChange(order.oid,2)">
+                                   {{order.dltype}} 
+                               </a> 
+                           </div>
+                       </div>
+                         <div class="portlet-body order_body">
+                              
+                               <div class="row"style="margin-left: 0px;margin-right: -5px;">
 
-                              <div class="col-md-3 nonepadding">
-                                  餐馆
-                              </div>
-                              <div class="col-md-9 nonepadding">
-                                  {{order.rrname}}}
-                              </div>
-                          </div> 
+                                   <div class="col-md-3 nonepadding">
+                                       餐馆
+                                   </div>
+                                   <div class="col-md-9 nonepadding">
+                                      {{order.rrname}}
+                                   </div>
+                               </div> 
 
-                          <div class="row"style="margin-left: 0px;margin-right: -5px;">
+                               <div class="row"style="margin-left: 0px;margin-right: -5px;">
 
-                              <div class="col-md-3 nonepadding">
-                                  总价
-                              </div>
-                              <div class="col-md-5 nonepadding">
-                                  {{order.total | currency}}
-                              </div>
-                              <div class="col-md-2 nonepadding">
-                                  运费
-                              </div>
-                              <div class="col-md-2 nonepadding">
-                                 {{order.dlexp | currency}}
-                              </div>
-                          </div> 
-                         
-                         <div class="row"style="margin-left: 0px;margin-right: -5px;">
+                                   <div class="col-md-3 nonepadding">
+                                       总价
+                                   </div>
+                                   <div class="col-md-5 nonepadding">
+                                       {{order.total | currency}}
+                                   </div>
+                                   <div class="col-md-2 nonepadding">
+                                       运费
+                                   </div>
+                                   <div class="col-md-2 nonepadding">
+                                       {{order.dlexp | currency}}
+                                   </div>
+                               </div> 
+                              
+                              <div class="row"style="margin-left: 0px;margin-right: -5px;">
 
-                             <div class="col-md-3 nonepadding">
-                                 状态
-                             </div>
-                             <div class="col-md-5 nonepadding">
-                                 {{order.status_txt}}
-                             </div>
-                             <div class="col-md-2 nonepadding">
-                                平台
-                             </div>
-                             <div class="col-md-2 nonepadding">
-                                 {{order.channel}}
-                             </div>
-                         </div> 
-                         <div class="row"style="margin-left: 0px;margin-right: -5px;">
+                                  <div class="col-md-3 nonepadding">
+                                      状态
+                                  </div>
+                                  <div class="col-md-5 nonepadding">
+                                      {{order.status_txt}}
+                                  </div>
+                                  <div class="col-md-2 nonepadding">
+                                     平台
+                                  </div>
+                                  <div class="col-md-2 nonepadding">
+                                      {{order.channel}}
+                                  </div>
+                              </div> 
+                              <div class="row"style="margin-left: 0px;margin-right: -5px;">
 
-                             <div class="col-md-3 nonepadding">
-                                 时间
-                             </div>
-                             <div class="col-md-9 nonepadding">
-                                 {{order.created}}
-                             </div>
-                            
-                         </div> 
-                      </div>
-                  </div>
-              </div>
-            </div>
-            <!-- END 改运费-->
-            <div class="item item-divider"style="text-align: center;">
-               新用户
-            <span ng-if="dc.new_user_order.length > 0">{{dc.new_user_order.length}}单 </span>
-            </div>
-            <ion-scroll style="height: 50%">
-            <!-- BEGIN 新用户-->
-            <div style="height:{{dc.h2}}px;width:100%;border:0px solid #ccc;overflow:auto;">
-              <div class="portlet light" ng-repeat="(id,order) in dc.new_user_order"style="margin-bottom: 8px;padding-left: 5px;padding-right: 5px;padding-bottom: 5px;">
-                  <div class="portlet-title"ng-class="{warning:order.warning==1,alert:order.alert==1}">
-                      <div class="caption font-green-sharp"
-                      data-ng-click="dc.openMap(order.oid,order.c_lat,order.c_lng,order.r_lat,order.r_lng)">
-                          <i 
-                            class=" icon-pin font-green-sharp"
+                                  <div class="col-md-3 nonepadding">
+                                      时间
+                                  </div>
+                                  <div class="col-md-9 nonepadding">
+                                      {{order.created}}
+                                  </div>
+                 
+                              </div> 
+                             <!-- </div> -->
+                         </div>
+                    </div>
+                </div>
+                <!-- END 改运费-->
+            <!-- </div> -->
+            <!-- <div style="height: 592px;"> -->
+                <div class="item item-divider"style="text-align: center;height: 39px;font-size: 21px;padding: 5px;background-color: #e87e04;color: #ffffff;">
+                   新用户
+                    <span ng-if="dc.new_user_order.length > 0">{{dc.new_user_order.length}}单 </span>
+                </div>
+                <!-- BEGIN 新用户-->
+                <div class="order_col_box "style="height:{{dc.h}}px;">
+                       <div  class="portlet order_box "
+                             ng-repeat="(id,order) in dc.new_user_order">
+                           <div  class="portlet-title order_header orange"
+                                 ng-class="{warning:order.warning==1,alert:order.alert==1}">
+                               <div class=" order_title"data-ng-click="dc.openMap(order.oid,order.c_lat,order.c_lng,order.r_lat,order.r_lng)">
+                      
+                          <i class="icon-pin" style="color: #ffffff"
                             class="dropdown-toggle"  
                             data-hover="dropdown" 
-                            data-close-others="true"
-                            >
-                          </i>
-                          <span class="caption-subject"style="font-size: 12px;"> {{order.oid}}</span>
-                          <span class="caption-subject"style="font-size: 10px;">   电话：{{order.cell}}</span>
-                          <!-- <span class="caption-helper">送餐</span> -->
-                      </div>
-                      <div class="actions">
-                          <a  class="btn btn-circle btn-default "class="dropdown-toggle"  data-hover="dropdown" data-close-others="true"style="font-size: 12px;"data-ng-click="dc.openOrderChange(order.oid,1)"> 
-                            {{order.dltype}} 
-                        </a> 
-                      </div>
-                  </div>
-                  <div class="portlet-body"style="font-size: 10px;">
-                      <div class="scroller" style="height:auto" data-rail-visible="1" data-rail-color="yellow" data-handle-color="#a1b2bd">
-                         
-                          <div class="row"style="margin-left: 0px;margin-right: -5px;">
+                            data-close-others="true"></i>
+                          
+                                   <span class="caption-subject"style="font-size: 12px;">{{order.oid}}</span>
+                                   <span class="caption-subject"style="font-size: 10px;">   电话：{{order.cell}}</span>
+                                   <!-- <span class="caption-helper">送餐</span> -->
+                               </div>
+                               <div class="actions">
+                                   <a class="btn btn-circle btn-default "style="font-size: 12px;"data-ng-click="dc.openOrderChange(order.oid,1)">
+                                       {{order.dltype}} 
+                                   </a> 
+                               </div>
+                           </div>
+                             <div class="portlet-body order_body">
+                                  
+                                   <div class="row"style="margin-left: 0px;margin-right: -5px;">
 
-                              <div class="col-md-3 nonepadding">
-                                  餐馆
-                              </div>
-                              <div class="col-md-9 nonepadding">
-                                  {{order.rrname}}}
-                              </div>
-                          </div> 
+                                       <div class="col-md-3 nonepadding">
+                                           餐馆
+                                       </div>
+                                       <div class="col-md-9 nonepadding">
+                                          {{order.rrname}}
+                                       </div>
+                                   </div> 
 
-                          <div class="row"style="margin-left: 0px;margin-right: -5px;">
+                                   <div class="row"style="margin-left: 0px;margin-right: -5px;">
 
-                              <div class="col-md-3 nonepadding">
-                                  总价
-                              </div>
-                              <div class="col-md-5 nonepadding">
-                                  {{order.total | currency}}
-                              </div>
-                              <div class="col-md-2 nonepadding">
-                                  运费
-                              </div>
-                              <div class="col-md-2 nonepadding">
-                                 {{order.dlexp | currency}}
-                              </div>
-                          </div> 
-                         
-                         <div class="row"style="margin-left: 0px;margin-right: -5px;">
+                                       <div class="col-md-3 nonepadding">
+                                           总价
+                                       </div>
+                                       <div class="col-md-5 nonepadding">
+                                           {{order.total | currency}}
+                                       </div>
+                                       <div class="col-md-2 nonepadding">
+                                           运费
+                                       </div>
+                                       <div class="col-md-2 nonepadding">
+                                           {{order.dlexp | currency}}
+                                       </div>
+                                   </div> 
+                                  
+                                  <div class="row"style="margin-left: 0px;margin-right: -5px;">
 
-                             <div class="col-md-3 nonepadding">
-                                 状态
+                                      <div class="col-md-3 nonepadding">
+                                          状态
+                                      </div>
+                                      <div class="col-md-5 nonepadding">
+                                          {{order.status_txt}}
+                                      </div>
+                                      <div class="col-md-2 nonepadding">
+                                         平台
+                                      </div>
+                                      <div class="col-md-2 nonepadding">
+                                          {{order.channel}}
+                                      </div>
+                                  </div> 
+                                  <div class="row"style="margin-left: 0px;margin-right: -5px;">
+
+                                      <div class="col-md-3 nonepadding">
+                                          时间
+                                      </div>
+                                      <div class="col-md-9 nonepadding">
+                                          {{order.created}}
+                                      </div>
+                     
+                                  </div> 
+                                 <!-- </div> -->
                              </div>
-                             <div class="col-md-5 nonepadding">
-                                 {{order.status_txt}}
-                             </div>
-                             <div class="col-md-2 nonepadding">
-                                平台
-                             </div>
-                             <div class="col-md-2 nonepadding">
-                                 {{order.channel}}
-                             </div>
-                         </div> 
-                         <div class="row"style="margin-left: 0px;margin-right: -5px;">
-
-                             <div class="col-md-3 nonepadding">
-                                 时间
-                             </div>
-                             <div class="col-md-9 nonepadding">
-                                 {{order.created}}
-                             </div>
-                            
-                         </div> 
-                         
-                         
-                          <!-- <div class="row"style="margin-left: 0px;margin-right: -5px;">
-
-                              <div class="col-md-3 nonepadding">
-                                  餐馆
-                              </div>
-                              <div class="col-md-9 nonepadding">
-                                   杨师傅东北烧烤王(Scarborough) 
-                              </div>
-                          </div>  -->
-                      </div>
-                  </div>
-              </div>
-            </div>
-            <!-- END 新用户-->
-
-        </div>
-        <!-- BEGIN 新订单 COLUMN -->
-
+                       </div>
+                </div>
+                <!-- END 新用户-->
+            <!-- </div> -->
+        </div>   
+    <!-- BEGIN 新订单 COLUMN -->
         <div class="col-md-15 col-sm-3 nonepadding border-left">
-          <div class="item item-divider"style="text-align: center;">
+          <div class="item item-divider"style="text-align: center;height: 39px;font-size: 21px;padding: 5px;background-color: #32c5d2;color: #ffffff;">
                 新订单
                 <span ng-if="dc.new_order.length > 0">{{dc.new_order.length}}单 </span>
             </div>
             <!-- BEGIN ORDER BOX-->
-            <div style="height:{{dc.h}}px;width:100%;border:0px solid #ccc;overflow:auto;">
-              <div class="portlet light"ng-repeat="(id,order) in dc.new_order"style="margin-bottom: 8px;padding-left: 5px;padding-right: 5px;padding-bottom: 5px;">
-                  <div class="portlet-title"ng-class="{warning:order.warning==1,alert:order.alert==1}">
-                      <div class="caption font-green-sharp"
-                        data-ng-click="dc.openMap(order.oid,order.c_lat,order.c_lng,order.r_lat,order.r_lng)">
-                          <i 
-                            class=" icon-pin font-green-sharp"
+
+            <div class="order_col_box"style="height:{{dc.h}}px;">
+              <div  class="portlet order_box "
+                    ng-repeat="(id,order) in dc.new_order">
+                  <div  class="portlet-title order_header skyblue"
+                        ng-class="{warning:order.warning==1,alert:order.alert==1}">
+                      <div class=" order_title"data-ng-click="dc.openMap(order.oid,order.c_lat,order.c_lng,order.r_lat,order.r_lng)">
+                      
+                          <i class="icon-pin" style="color: #ffffff"
                             class="dropdown-toggle"  
                             data-hover="dropdown" 
-                            data-close-others="true"
-                            >
-                          </i>
-                          <span class="caption-subject"style="font-size: 12px;"> {{order.oid}}</span>
+                            data-close-others="true"></i>
+                          
+                          <span class="caption-subject"style="font-size: 12px;">{{order.oid}}</span>
+
                           <span class="caption-subject"style="font-size: 10px;">   电话：{{order.cell}}</span>
                           <!-- <span class="caption-helper">送餐</span> -->
                       </div>
                       <div class="actions">
-                          <a class="btn btn-circle btn-default "style="font-size: 12px;">
+                          <a class="btn btn-circle btn-default "style="font-size: 12px;"data-ng-click="dc.openOrderChange(order.oid,3)">
                               {{order.dltype}} 
                           </a> 
                       </div>
                   </div>
-                  <div class="portlet-body"style="font-size: 10px;">
-                      <div class="scroller" style="height:auto" data-rail-visible="1" data-rail-color="yellow" data-handle-color="#a1b2bd">
-                         
-                          <div class="row"style="margin-left: 0px;margin-right: -5px;">
-
-                              <div class="col-md-3 nonepadding">
-                                  餐馆
-                              </div>
-                              <div class="col-md-9 nonepadding">
-                                   {{order.rrname}}
-                              </div>
-                          </div> 
-
-                          <div class="row"style="margin-left: 0px;margin-right: -5px;">
-
-                              <div class="col-md-3 nonepadding">
-                                  总价
-                              </div>
-                              <div class="col-md-5 nonepadding">
-                                  {{order.total | currency}}
-                              </div>
-                              <div class="col-md-2 nonepadding">
-                                  运费
-                              </div>
-                              <div class="col-md-2 nonepadding">
-                                  {{order.dlexp | currency}}
-                              </div>
-                          </div> 
-                         
-                         <div class="row"style="margin-left: 0px;margin-right: -5px;">
-
-                             <div class="col-md-3 nonepadding">
-                                 状态
-                             </div>
-                             <div class="col-md-5 nonepadding">
-                                {{order.status_txt}}
-                             </div>
-                             <div class="col-md-2 nonepadding">
-                                平台
-                             </div>
-                             <div class="col-md-2 nonepadding">
-                                 {{order.channel}}
-                             </div>
-                         </div> 
-                         <div class="row"style="margin-left: 0px;margin-right: -5px;">
-
-                             <div class="col-md-3 nonepadding">
-                                 时间
-                             </div>
-                             <div class="col-md-9 nonepadding">
-                                 {{order.created}}
-                             </div>
-                            
-                         </div> 
-                         
-                         
-                          <!-- <div class="row"style="margin-left: 0px;margin-right: -5px;">
-
-                              <div class="col-md-3 nonepadding">
-                                  餐馆
-                              </div>
-                              <div class="col-md-9 nonepadding">
-                                   杨师傅东北烧烤王(Scarborough) 
-                              </div>
-                          </div>  -->
-                      </div>
-                  </div>
-              </div>
-            </div>
-            <!-- END ORDER BOX-->
-        </div>
-        <!-- END 新订单 COLUMN -->
-
-        <!-- BEGIN 已接单 COLUMN -->
-        <div class="col-md-15 col-sm-3 nonepadding border-left">
-          <div class="item item-divider"style="text-align: center;">
-                已接单
-            <span ng-if="dc.confirm_order.length > 0">{{dc.confirm_order.length}}单 </span>
-            </div>
-            <!-- BEGIN ORDER BOX-->
-
-            <div style="height:{{dc.h}}px;width:100%;border:0px solid #ccc;overflow:auto;">
-              <div class="portlet light"ng-repeat="(id,order) in dc.confirm_order"style="margin-bottom: 8px;padding-left: 5px;padding-right: 5px;padding-bottom: 5px;">
-                  <div class="portlet-title"ng-class="{warning:order.warning==1,alert:order.alert==1}">
-                      <div class="caption font-green-sharp"
-                            data-ng-click="dc.openMap(order.oid,order.c_lat,order.c_lng,order.r_lat,order.r_lng)">
-                          <i 
-                            class=" icon-pin font-green-sharp"
-                            class="dropdown-toggle"  
-                            data-hover="dropdown" 
-                            data-close-others="true"
-                            >
-                          </i>
-                          <span class="caption-subject"style="font-size: 12px;"> {{order.oid}}</span>
-                          <span class="caption-subject"style="font-size: 10px;">   电话：{{order.cell}}    </span>
-                          <!-- <span class="caption-helper">送餐</span> -->
-                      </div>
-                      <div class="actions">
-                          <a  class="btn btn-circle btn-default "class="dropdown-toggle"  data-hover="dropdown" data-close-others="true"style="font-size: 12px;"data-ng-click="dc.openOrderChange(order.oid,3)"> 
-                            {{order.dltype}} 
-                        </a>
-                       
-                      </div>
-                       <!-- <div id="myModal1" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                                    </div>
-                                    <div class="portlet-body form">
-                                            <form class="form-horizontal" role="form">
-                                                <div class="form-body">
-                                                    <div class="form-group">
-                                                        <label class="col-md-3 control-label">Large Input</label>
-                                                        <div class="col-md-9">
-                                                            <input type="text" class="form-control input-lg" placeholder="Large Input"> </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-md-3 control-label">Default Input</label>
-                                                        <div class="col-md-9">
-                                                            <input type="text" class="form-control" placeholder="Default Input"> </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-md-3 control-label">Small Input</label>
-                                                        <div class="col-md-9">
-                                                            <input type="text" class="form-control input-sm" placeholder="Default Input"> </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-md-3 control-label">Large Select</label>
-                                                        <div class="col-md-9">
-                                                            <select class="form-control input-lg">
-                                                                <option>Option 1</option>
-                                                                <option>Option 2</option>
-                                                                <option>Option 3</option>
-                                                                <option>Option 4</option>
-                                                                <option>Option 5</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-md-3 control-label">Default Select</label>
-                                                        <div class="col-md-9">
-                                                            <select class="form-control">
-                                                                <option>Option 1</option>
-                                                                <option>Option 2</option>
-                                                                <option>Option 3</option>
-                                                                <option>Option 4</option>
-                                                                <option>Option 5</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-md-3 control-label">Small Select</label>
-                                                        <div class="col-md-9">
-                                                            <select class="form-control input-sm">
-                                                                <option>Option 1</option>
-                                                                <option>Option 2</option>
-                                                                <option>Option 3</option>
-                                                                <option>Option 4</option>
-                                                                <option>Option 5</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    <div class="modal-footer">
-                                        <button class="btn default" data-dismiss="modal" aria-hidden="true">Close</button>
-                                        <button class="btn yellow">Save</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
-                  </div>
-                  <div class="portlet-body"style="font-size: 10px;">
-                      <div class="scroller" style="height:auto" data-rail-visible="1" data-rail-color="yellow" data-handle-color="#a1b2bd">
+                    <div class="portlet-body order_body">
                          
                           <div class="row"style="margin-left: 0px;margin-right: -5px;">
 
@@ -460,48 +275,131 @@
                              <div class="col-md-9 nonepadding">
                                  {{order.created}}
                              </div>
-                            
+            
                          </div> 
+                        <!-- </div> -->
+                    </div>
+              </div>
+            </div>
+            <!-- END ORDER BOX-->
+        </div>
+    <!-- END 新订单 COLUMN -->
+
+    <!-- BEGIN 已接单 COLUMN -->
+        <div class="col-md-15 col-sm-3 nonepadding border-left">
+          <div class="item item-divider"style="text-align: center;height: 39px;font-size: 21px;padding: 5px;background-color: #67809f; color: #ffffff;">
+                已接单
+            <span ng-if="dc.confirm_order.length > 0">{{dc.confirm_order.length}}单 </span>
+            </div>
+            <!-- BEGIN ORDER BOX-->
+
+            <div class="order_col_box"style="height:{{dc.h}}px;">
+              <div  class="portlet order_box "
+                    ng-repeat="(id,order) in dc.confirm_order">
+                  <div  class="portlet-title order_header darkblue"
+                        ng-class="{warning:order.warning==1,alert:order.alert==1}">
+                      <div class=" order_title"data-ng-click="dc.openMap(order.oid,order.c_lat,order.c_lng,order.r_lat,order.r_lng)">
+                      
+                          <i class="icon-pin" style="color: #ffffff"
+                            class="dropdown-toggle"  
+                            data-hover="dropdown" 
+                            data-close-others="true"></i>
+                          
+                          <span class="caption-subject"style="font-size: 12px;">{{order.oid}}</span>
+                          <span class="caption-subject"style="font-size: 10px;">   电话：{{order.cell}}</span>
+
+                          <!-- <span class="caption-helper">送餐</span> -->
+                      </div>
+                      <div class="actions">
+                          <a  class="btn btn-circle btn-default "class="dropdown-toggle"  data-hover="dropdown" data-close-others="true"style="font-size: 12px;"data-ng-click="dc.openOrderChange(order.oid,3)"> 
+                            {{order.dltype}} 
+                        </a>
+                       
+                      </div>
+                   
+                  </div>
+                    <div class="portlet-body order_body">
                          
-                         
-                          <!-- <div class="row"style="margin-left: 0px;margin-right: -5px;">
+                          <div class="row"style="margin-left: 0px;margin-right: -5px;">
 
                               <div class="col-md-3 nonepadding">
                                   餐馆
                               </div>
                               <div class="col-md-9 nonepadding">
-                                   杨师傅东北烧烤王(Scarborough) 
+                                 {{order.rrname}}
                               </div>
-                          </div>  -->
-                      </div>
-                  </div>
+                          </div> 
+
+                          <div class="row"style="margin-left: 0px;margin-right: -5px;">
+
+                              <div class="col-md-3 nonepadding">
+                                  总价
+                              </div>
+                              <div class="col-md-5 nonepadding">
+                                  {{order.total | currency}}
+                              </div>
+                              <div class="col-md-2 nonepadding">
+                                  运费
+                              </div>
+                              <div class="col-md-2 nonepadding">
+                                  {{order.dlexp | currency}}
+                              </div>
+                          </div> 
+                         
+                         <div class="row"style="margin-left: 0px;margin-right: -5px;">
+
+                             <div class="col-md-3 nonepadding">
+                                 状态
+                             </div>
+                             <div class="col-md-5 nonepadding">
+                                 {{order.status_txt}}
+                             </div>
+                             <div class="col-md-2 nonepadding">
+                                平台
+                             </div>
+                             <div class="col-md-2 nonepadding">
+                                 {{order.channel}}
+                             </div>
+                         </div> 
+                         <div class="row"style="margin-left: 0px;margin-right: -5px;">
+
+                             <div class="col-md-3 nonepadding">
+                                 时间
+                             </div>
+                             <div class="col-md-9 nonepadding">
+                                 {{order.created}}
+                             </div>
+            
+                         </div> 
+                        <!-- </div> -->
+                    </div>
               </div>
             </div>
             <!-- END ORDER BOX-->
-
         </div>
-        <!-- END 已接单 COLUMN -->
+    <!-- END 已接单 COLUMN -->
 
-         <!-- BEGIN 拒单 COLUMN -->
+    <!-- BEGIN 拒单 COLUMN -->
         <div class="col-md-15 col-sm-3 nonepadding border-left">
-          <div class="item item-divider"style="text-align: center;">
+          <div class="item item-divider"style="text-align: center;height: 39px;font-size: 21px;padding: 5px;background-color: #e35b5a;color: #ffffff;">
                 拒单
             <span ng-if="dc.reject_order.length > 0">{{dc.reject_order.length}}单 </span>
             </div>
             <!-- BEGIN ORDER BOX-->
-            <div style="height:{{dc.h}}px;width:100%;border:0px solid #ccc;overflow:auto;">
-              <div class="portlet light"ng-repeat="(id,order) in dc.reject_order"style="margin-bottom: 8px;padding-left: 5px;padding-right: 5px;padding-bottom: 5px;">
-                  <div class="portlet-title"ng-class="{warning:order.warning==1,alert:order.alert==1}">
-                      <div class="caption font-green-sharp"
-                        data-ng-click="dc.openMap(order.oid,order.c_lat,order.c_lng,order.r_lat,order.r_lng)">
-                         <!--  <i class="icon-speech font-green-sharp"></i> -->
-                         <i 
-                            class=" icon-pin font-green-sharp"
+
+            <div class="order_col_box"style="height:{{dc.h}}px;">
+              <div  class="portlet order_box "
+                    ng-repeat="(id,order) in dc.reject_order">
+                  <div  class="portlet-title order_header red"
+                        ng-class="{warning:order.warning==1,alert:order.alert==1}">
+                      <div class=" order_title"data-ng-click="dc.openMap(order.oid,order.c_lat,order.c_lng,order.r_lat,order.r_lng)">
+                      
+                          <i class="icon-pin" style="color: #ffffff"
                             class="dropdown-toggle"  
                             data-hover="dropdown" 
-                            data-close-others="true"
-                            >
-                          </i>
+                            data-close-others="true"></i>
+                          
+
                           <span class="caption-subject"style="font-size: 12px;">{{order.oid}}</span>
                           <span class="caption-subject"style="font-size: 10px;">   电话：{{order.cell}}</span>
                           <!-- <span class="caption-helper">送餐</span> -->
@@ -513,8 +411,7 @@
                           </a> 
                       </div>
                   </div>
-                  <div class="portlet-body"style="font-size: 10px;">
-                      <div class="scroller" style="height:auto" data-rail-visible="1" data-rail-color="yellow" data-handle-color="#a1b2bd">
+                    <div class="portlet-body order_body">
                          
                           <div class="row"style="margin-left: 0px;margin-right: -5px;">
 
@@ -565,62 +462,57 @@
                              <div class="col-md-9 nonepadding">
                                  {{order.created}}
                              </div>
-                            
+            
                          </div> 
-                         
-                         
-                          <!-- <div class="row"style="margin-left: 0px;margin-right: -5px;">
-
-                              <div class="col-md-3 nonepadding">
-                                  餐馆
-                              </div>
-                              <div class="col-md-9 nonepadding">
-                                   杨师傅东北烧烤王(Scarborough) 
-                              </div>
-                          </div>  -->
-                      </div>
-                  </div>
+                        <!-- </div> -->
+                    </div>
               </div>
             </div>
             <!-- END ORDER BOX-->
         </div>
-        <!-- END 拒单 COLUMN -->
+    <!-- END 拒单 COLUMN -->
          
-        <!-- BEGIN 司机 COLUMN -->
+    <!-- BEGIN 司机 COLUMN -->
         <div class="col-md-15 col-sm-3 nonepadding border-left ">
-           <div class="item item-divider"style="text-align: center;">
+           <div class="item item-divider"style="text-align: center;height: 39px;font-size: 21px;padding: 5px;background-color: #5c9bd1;color: #ffffff;">
               司机
            </div>
            <!-- BEGIN 司机  -->
            <div style="height:{{dc.h}}px;width:100%;border:0px ;overflow:auto;">
               <div class="portlet-body">
                  <div class="panel-group accordion" id="accordion3" >
-                    <div class="panel panel-default"ng-repeat="(id,driver) in dc.drivers"overflow="hidden">
-                       <div class="panel-heading">
+                    <div class="panel panel-default"
+                         ng-repeat="(id,driver) in dc.drivers"
+                         overflow="hidden"
+                         style="margin-top: 0px;">
+                       <div class=" driver_heading" >
                           <h4 class="panel-title">
-                             <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion3" href="#{{id}}" aria-expanded="false"> 司机: {{driver.deliver}}<span style="float: right;">{{driver.orders.length}}单</span></a>
+                            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion3" href="#{{id}}" aria-expanded="false"> 
+                            <span style="float: left;font-size: 29px;margin-top: -7px;padding-right: 10px;">+</span>
+                            司机: {{driver.deliver}}
+                            <span style="float: right;">{{driver.orders.length}}单</span> 
+                            </a>
                           </h4>
                        </div>
                        <div id="{{id}}" class="panel-collapse collapse" aria-expanded="false">
-                          <div class="panel-body">
-                             <!-- BEGIN ORDER BOX-->
-                             <div class="portlet light"ng-repeat="order in driver.orders"style="margin-bottom: 8px;padding-left: 5px;padding-right: 5px;padding-bottom: 5px;">
-                                <div class="portlet-title"ng-class="{warning:order.warning==1,alert:order.alert==1}">
-                                   <div class="caption font-green-sharp"
-                                   data-ng-click="dc.openMap(order.oid,order.c_lat,order.c_lng,order.r_lat,order.r_lng)">
-                                      <i 
-                                        class=" icon-pin font-green-sharp"
-                                        class="dropdown-toggle"  
-                                        data-hover="dropdown" 
-                                        data-close-others="true"
-                                        >
-                                      </i>
+
+
+                          <div class="panel-body" 
+                               style="padding-top: 0px;padding-bottom: 0px;padding-left: 0px;padding-right: 11px;">
+                        <!-- BEGIN ORDER BOX-->
+                            <div class="portlet light"
+                                  ng-repeat="order in driver.orders"
+                                  style="margin-bottom: 0px;padding:5px;">
+                                <div class="portlet-title"ng-class="{warning:order.warning==1,alert:order.alert==1}"style="margin-bottom: 0px;background-color: #4ec49a;color: #ffffff;">
+                                   <div class="caption "style="color:#ffffff">
+                                      <i class="icon-pin" style="color: #ffffff"></i>
+
                                       <span class="caption-subject"style="font-size: 12px;"> {{order.oid}}</span>
                                       <span class="caption-subject"style="font-size: 10px;">   电话：{{order.cell}}</span>
                                       <!-- <span class="caption-helper">送餐</span> -->
                                    </div>
                                 </div>
-                                <div class="portlet-body"style="font-size: 10px;">
+                                <div class="portlet-body"style="font-size: 10px;border-style: solid;border-width: 0px 1px 1px 1px;">
                                    <div class="scroller" style="height:auto" data-rail-visible="1" data-rail-color="yellow" data-handle-color="#a1b2bd">
                                       <div class="row"style="margin-left: 0px;margin-right: -5px;">
                                          <div class="col-md-3 nonepadding">
@@ -668,8 +560,8 @@
                                       </div>
                                    </div>
                                 </div>
-                             </div>
-                             <!-- END ORDER BOX-->
+                            </div>
+                        <!-- END ORDER BOX-->
                           </div>
                        </div>
                     </div>
@@ -678,7 +570,8 @@
            </div>
            <!-- END 司机 -->
         </div>
-        <!-- END 司机 COLUMN -->
+    <!-- END 司机 COLUMN -->
+    
     </div>
     <!-- END DASHBOARD COLUMN -->
    

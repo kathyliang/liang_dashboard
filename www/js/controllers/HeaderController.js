@@ -1,5 +1,6 @@
 
-angular.module('MetronicApp').controller('HeaderController', function($rootScope, $scope, $http, $location,$timeout,$interval,$modal, $log,AlertService) {
+angular.module('MetronicApp').controller('HeaderController', function($rootScope, $scope, $http, $location,$timeout,$interval,$modal, $log,AlertService,auth) {
+
     var HeaderController = this;
     $scope.$on('$viewContentLoaded', function() {   
         // initialize core components
@@ -12,6 +13,7 @@ angular.module('MetronicApp').controller('HeaderController', function($rootScope
     $rootScope.settings.layout.pageSidebarClosed = true;
     
     HeaderController.hello = "hello";
+
     function get_orders() {
         $http({
           method: 'GET',
@@ -171,4 +173,9 @@ angular.module('MetronicApp').controller('HeaderController', function($rootScope
               $log.info('Modal dismissed at: ' + new Date());
           });
       };
+      HeaderController.logout = function() {
+        console.log("log out");
+          auth.logout()
+      };
+
 });

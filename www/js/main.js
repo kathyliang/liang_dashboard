@@ -180,30 +180,30 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider','$httpProvider', func
                 }]
             }
         })
-         // Login
-        .state('login', {
-            url: "/login.html",
-            templateUrl: "views/login.html",            
-            // data: {pageTitle: '馋猫订餐 Dashboard'},
-            //controller: "DashboardController as dc",
-            resolve: {
-                deps: ['$ocLazyLoad', function($ocLazyLoad) {
-                    return $ocLazyLoad.load({
-                        name: 'MetronicApp',
-                        insertBefore: '#ng_load_plugins_before', // load the above css files before a LINK element with this ID. Dynamic CSS files must be loaded between core and theme css files
-                        files: [
-                            '../assets/global/plugins/morris/morris.css',                            
-                            '../assets/global/plugins/morris/morris.min.js',
-                            '../assets/global/plugins/morris/raphael-min.js',                            
-                            '../assets/global/plugins/jquery.sparkline.min.js',
-                            //
-                            '../assets/pages/scripts/dashboard.min.js',
-                            'js/controllers/DashboardController.js'
-                        ] 
-                    });
-                }]
-            }
-        })
+        //  // Login
+        // .state('login', {
+        //     url: "/login.html",
+        //     templateUrl: "views/login.html",            
+        //     // data: {pageTitle: '馋猫订餐 Dashboard'},
+        //     //controller: "DashboardController as dc",
+        //     resolve: {
+        //         deps: ['$ocLazyLoad', function($ocLazyLoad) {
+        //             return $ocLazyLoad.load({
+        //                 name: 'MetronicApp',
+        //                 insertBefore: '#ng_load_plugins_before', // load the above css files before a LINK element with this ID. Dynamic CSS files must be loaded between core and theme css files
+        //                 files: [
+        //                     '../assets/global/plugins/morris/morris.css',                            
+        //                     '../assets/global/plugins/morris/morris.min.js',
+        //                     '../assets/global/plugins/morris/raphael-min.js',                            
+        //                     '../assets/global/plugins/jquery.sparkline.min.js',
+        //                     //
+        //                     '../assets/pages/scripts/dashboard.min.js',
+        //                     'js/controllers/DashboardController.js'
+        //                 ] 
+        //             });
+        //         }]
+        //     }
+        // })
         // .state('header', {
         //     templateUrl: "views/dashboard.html",  
         //     controller: "HeaderController as hc",
