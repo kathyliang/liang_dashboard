@@ -6,7 +6,7 @@ angular.module('MetronicApp').controller('AlertController', function($scope,$sce
       var oid = data.oid
       var port = data.port
       AlertController.oid = oid
-      AlertController.url= $sce.trustAsResourceUrl("http://chanmao.ca/monitor/#/" + port + "/"+ oid +"/e");
+      AlertController.url= $sce.trustAsResourceUrl("https://www.chanmao.ca/monitor/#/" + port + "/"+ oid +"/e");
     }else if(data.type == "maps"){
       var lv_c_lat = data.c_lat;
       var lv_c_lng = data.c_lng;

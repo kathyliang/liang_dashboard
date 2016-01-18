@@ -11,4 +11,4 @@ angular.module('MetronicApp').controller('AuthController', ['$rootScope', '$scop
         // AuthController.login('aiden','ace68723')
 
 }]);
-MetronicApp.constant("API_URL", "https://chanmao.ca/index.php?r=");
+MetronicApp.constant("API_URL", "https://www.chanmao.ca/index.php?r=");

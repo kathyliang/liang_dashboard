@@ -107,7 +107,7 @@ angular.module('MetronicApp').controller('HeaderController', function($rootScope
     function get_notes() {
         $http({
           method: 'GET',
-          url: 'https://chanmao.ca/index.php?r=MobMonitor/CsLoad',
+          url: 'https://www.chanmao.ca/index.php?r=MobMonitor/CsLoad',
           
         }).then(function successCallback(response) {
             console.log("111111111",response)
@@ -128,7 +128,7 @@ angular.module('MetronicApp').controller('HeaderController', function($rootScope
 
         $http({
           method: 'POST',
-          url: 'https://chanmao.ca/index.php?r=MobMonitor/CsNotes',
+          url: 'https://www.chanmao.ca/index.php?r=MobMonitor/CsNotes',
           headers: {
            'Authortoken': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiIxMDYxMSIsImV4cGlyZWQiOjE0NTQzMDE3ODd9.Zanu0l3LW31UlGZ72PXbcBUDPGOstKai2oMYiX4ab_Y'
           },

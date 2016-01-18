@@ -46,14 +46,7 @@
     padding-top: 3px;
     padding-bottom: 3px;
 }
-.warning{
-    background-color: #F7FE2E;
-    color: #FAFAFA;
-}
-.alert{
-    background-color: #FF0000;
-    color: #FAFAFA;
-}
+
 .driver_heading{
     background-color: #5c9bd1;
     color:#ffffff;
@@ -107,4 +100,12 @@
 .order_body{
     padding:5px;
     font-size: 10px;
+}
+.order_header.warning{
+    background-color: #FD0A0A;
+    color: #FAFAFA;
+}
+.order_header.alert{
+    background-color: #F9FD0A;
+    color: #FAFAFA;
 }
