@@ -36,6 +36,7 @@ angular.module('MetronicApp').controller('DashboardController', function($rootSc
       
     };
     DashCtrl.openMap = function (oid,c_lat,c_lng,r_lat,r_lng) {
+    	// r_addr,c_addr
       var size = 'lg'
       var eo_data = {};
       eo_data.c_lat = c_lat;
@@ -43,8 +44,9 @@ angular.module('MetronicApp').controller('DashboardController', function($rootSc
       eo_data.r_lat = r_lat;
       eo_data.r_lng = r_lng;
       eo_data.oid   = oid;
-      eo_data.type = "maps"
-      console.log("hhahahaha",eo_data.oid)
+      // eo_data.r_addr= r_addr;
+      // eo_data.c_addr=c_addr;
+      eo_data.type = "maps";
       DashCtrl.openPopup(size,eo_data);
       
       

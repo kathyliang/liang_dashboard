@@ -7,13 +7,15 @@ angular.module('MetronicApp').controller('OrderChangeCtrl', function($scope,$sce
       OrderChangeCtrl.oid = oid
       OrderChangeCtrl.url= $sce.trustAsResourceUrl("https://www.chanmao.ca/monitor/#/" + port + "/"+ oid +"/e");
     }else if(data.type == "maps"){
-      var lv_c_lat = data.c_lat;
-      var lv_c_lng = data.c_lng;
-      var lv_r_lat = data.r_lat;
-      var lv_r_lng = data.r_lng;
+      var lv_c_lat  = data.c_lat;
+      var lv_c_lng  = data.c_lng;
+      var lv_r_lat  = data.r_lat;
+      var lv_r_lng  = data.r_lng;
+      OrderChangeCtrl.lv_r_addr = data.r_addr;
+      OrderChangeCtrl.lv_c_addr = data.c_addr;
       var oid = data.oid;
       OrderChangeCtrl.oid = oid;
-
+      console.log("data:",data);
       //tolls test
       // var lv_c_lat = 43.591499;
       // var lv_c_lng = -79.641226;
