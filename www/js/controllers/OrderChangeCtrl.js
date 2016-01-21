@@ -1,6 +1,7 @@
 
 angular.module('MetronicApp').controller('OrderChangeCtrl', function($scope,$sce, $modalInstance, data) {
     var OrderChangeCtrl = this;
+    OrderChangeCtrl.lv_c_addr = data.c_addr;
     if(data.type =="order"){
       var oid = data.oid
       var port = data.port
@@ -12,7 +13,6 @@ angular.module('MetronicApp').controller('OrderChangeCtrl', function($scope,$sce
       var lv_r_lat  = data.r_lat;
       var lv_r_lng  = data.r_lng;
       OrderChangeCtrl.lv_r_addr = data.r_addr;
-      OrderChangeCtrl.lv_c_addr = data.c_addr;
       var oid = data.oid;
       OrderChangeCtrl.oid = oid;
       console.log("data:",data);
@@ -46,7 +46,8 @@ angular.module('MetronicApp').controller('OrderChangeCtrl', function($scope,$sce
         $scope.cancel = function()
         {
             $modalInstance.dismiss('cancel');
-            window.location.reload();
+            // window.location.reload();
+
         };
 
 

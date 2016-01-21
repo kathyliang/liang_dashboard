@@ -29,7 +29,7 @@
                           ng-repeat="(id,order) in dc.change_addr_order">
                        <div  class="portlet-title order_header yellow"
                              ng-class="{warning:order.warning==1,alert:order.alert==1}">
-                           <div class=" order_title"data-ng-click="dc.openMap(order.oid,order.c_lat,order.c_lng,order.r_lat,order.r_lng)">
+                           <div class=" order_title"data-ng-click="dc.openMap(order.oid,order.c_lat,order.c_lng,order.r_lat,order.r_lng,order.c_addr)">
                       
                           <i class="icon-pin" style="color: #ffffff"
                             class="dropdown-toggle"  
@@ -41,7 +41,7 @@
                                <!-- <span class="caption-helper">送餐</span> -->
                            </div>
                            <div class="actions">
-                               <a class="btn btn-circle btn-default "style="font-size: 12px;"data-ng-click="dc.openOrderChange(order.oid,2)">
+                               <a class="btn btn-circle btn-default "style="font-size: 12px;"data-ng-click="dc.openOrderChange(order.oid,2,order.c_addr)">
                                    {{order.dltype}} 
                                </a> 
                            </div>
@@ -116,7 +116,7 @@
                              ng-repeat="(id,order) in dc.new_user_order">
                            <div  class="portlet-title order_header orange"
                                  ng-class="{warning:order.warning==1,alert:order.alert==1}">
-                               <div class=" order_title"data-ng-click="dc.openMap(order.oid,order.c_lat,order.c_lng,order.r_lat,order.r_lng)">
+                               <div class=" order_title"data-ng-click="dc.openMap(order.oid,order.c_lat,order.c_lng,order.r_lat,order.r_lng,order.c_addr)">
                       
                           <i class="icon-pin" style="color: #ffffff"
                             class="dropdown-toggle"  
@@ -128,7 +128,7 @@
                                    <!-- <span class="caption-helper">送餐</span> -->
                                </div>
                                <div class="actions">
-                                   <a class="btn btn-circle btn-default "style="font-size: 12px;"data-ng-click="dc.openOrderChange(order.oid,1)">
+                                   <a class="btn btn-circle btn-default "style="font-size: 12px;"data-ng-click="dc.openOrderChange(order.oid,1,order.c_addr)">
                                        {{order.dltype}} 
                                    </a> 
                                </div>
@@ -206,7 +206,7 @@
                     ng-repeat="(id,order) in dc.new_order">
                   <div  class="portlet-title order_header skyblue"
                         ng-class="{warning:order.warning==1,alert:order.alert==1}">
-                      <div class=" order_title"data-ng-click="dc.openMap(order.oid,order.c_lat,order.c_lng,order.r_lat,order.r_lng)">
+                      <div class=" order_title"data-ng-click="dc.openMap(order.oid,order.c_lat,order.c_lng,order.r_lat,order.r_lng,order.c_addr)">
                       
                           <i class="icon-pin" style="color: #ffffff"
                             class="dropdown-toggle"  
@@ -219,7 +219,7 @@
                           <!-- <span class="caption-helper">送餐</span> -->
                       </div>
                       <div class="actions">
-                          <a class="btn btn-circle btn-default "style="font-size: 12px;"data-ng-click="dc.openOrderChange(order.oid,3)">
+                          <a class="btn btn-circle btn-default "style="font-size: 12px;"data-ng-click="dc.openOrderChange(order.oid,3,order.c_addr)">
                               {{order.dltype}} 
                           </a> 
                       </div>
@@ -298,7 +298,8 @@
                     ng-repeat="(id,order) in dc.confirm_order">
                   <div  class="portlet-title order_header darkblue"
                         ng-class="{warning:order.warning==1,alert:order.alert==1}">
-                      <div class=" order_title"data-ng-click="dc.openMap(order.oid,order.c_lat,order.c_lng,order.r_lat,order.r_lng)">
+                      <div  class=" order_title"
+                            data-ng-click="dc.openMap(order.oid,order.c_lat,order.c_lng,order.r_lat,order.r_lng,order.c_addr)">
                       
                           <i class="icon-pin" style="color: #ffffff"
                             class="dropdown-toggle"  
@@ -311,7 +312,11 @@
                           <!-- <span class="caption-helper">送餐</span> -->
                       </div>
                       <div class="actions">
-                          <a  class="btn btn-circle btn-default "class="dropdown-toggle"  data-hover="dropdown" data-close-others="true"style="font-size: 12px;"data-ng-click="dc.openOrderChange(order.oid,3)"> 
+                          <a  class="btn btn-circle btn-default dropdown-toggle"
+                              data-hover="dropdown" 
+                              data-close-others="true"
+                              style="font-size: 12px;"
+                              data-ng-click="dc.openOrderChange(order.oid,3,order.c_addr)"> 
                             {{order.dltype}} 
                         </a>
                        
@@ -392,7 +397,8 @@
                     ng-repeat="(id,order) in dc.reject_order">
                   <div  class="portlet-title order_header red"
                         ng-class="{warning:order.warning==1,alert:order.alert==1}">
-                      <div class=" order_title"data-ng-click="dc.openMap(order.oid,order.c_lat,order.c_lng,order.r_lat,order.r_lng)">
+                      <div class=" order_title"
+                           data-ng-click="dc.openMap(order.oid,order.c_lat,order.c_lng,order.r_lat,order.r_lng,order.c_addr)">
                       
                           <i class="icon-pin" style="color: #ffffff"
                             class="dropdown-toggle"  
@@ -405,7 +411,9 @@
                           <!-- <span class="caption-helper">送餐</span> -->
                       </div>
                       <div class="actions">
-                          <a class="btn btn-circle btn-default "style="font-size: 12px;"data-ng-click="dc.openOrderChange(order.oid,3)">
+                          <a class="btn btn-circle btn-default "
+                             style="font-size: 12px;"
+                             data-ng-click="dc.openOrderChange(order.oid,3,order.c_addr)">
                               {{order.dltype}} 
 
                           </a> 
@@ -487,7 +495,11 @@
                          style="margin-top: 0px;">
                        <div class=" driver_heading" >
                           <h4 class="panel-title">
-                            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion3" href="#{{id}}" aria-expanded="false"> 
+                            <a class="accordion-toggle collapsed" 
+                               data-toggle="collapse" 
+                               data-parent="#accordion3" 
+                               href="#{{id}}" 
+                               aria-expanded="false"> 
                             <span style="float: left;font-size: 29px;margin-top: -7px;padding-right: 10px;">+</span>
                             司机: {{driver.deliver}}
                             <span style="float: right;">{{driver.orders.length}}单</span> 
@@ -503,14 +515,29 @@
                             <div class="portlet light"
                                   ng-repeat="order in driver.orders"
                                   style="margin-bottom: 0px;padding:5px;">
-                                <div class="portlet-title"ng-class="{warning:order.warning==1,alert:order.alert==1}"style="margin-bottom: 0px;background-color: #4ec49a;color: #ffffff;">
-                                   <div class="caption "style="color:#ffffff">
+
+                                <div class="portlet-title"
+                                     ng-class="{warning:order.warning==1,alert:order.alert==1}"
+                                     style="margin-bottom: 0px;background-color: #4ec49a;color: #ffffff;">
+                                   <div class="caption "
+                                        style="color:#ffffff"
+                                        data-ng-click="dc.openMap(order.oid,order.c_lat,order.c_lng,order.r_lat,order.r_lng,order.c_addr)">
                                       <i class="icon-pin" style="color: #ffffff"></i>
 
                                       <span class="caption-subject"style="font-size: 12px;"> {{order.oid}}</span>
                                       <span class="caption-subject"style="font-size: 10px;">   电话：{{order.cell}}</span>
                                       <!-- <span class="caption-helper">送餐</span> -->
                                    </div>
+                                    <div class="actions">
+                                       <a  class="btn btn-circle btn-default dropdown-toggle"
+                                           data-hover="dropdown" 
+                                           data-close-others="true"
+                                           style="font-size: 12px;"
+                                           data-ng-click="dc.openOrderChange(order.oid,3,order.c_addr)"> 
+                                         {{order.dltype}} 
+                                        </a>
+                                    
+                                    </div>
                                 </div>
                                 <div class="portlet-body"style="font-size: 10px;border-style: solid;border-width: 0px 1px 1px 1px;">
                                    <div class="scroller" style="height:auto" data-rail-visible="1" data-rail-color="yellow" data-handle-color="#a1b2bd">
