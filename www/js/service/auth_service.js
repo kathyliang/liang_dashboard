@@ -85,7 +85,8 @@ angular.module('MetronicApp')
             if(lo_data.ev_result==0){
                 auth.setToken(lo_data.ev_token);
                  auth.setState_key(lo_data.ev_token);
-                 window.location="../cs/index.html"
+                 // window.location="../cs/index.html"
+                 window.location="../index.html"
 
             }else{
                 console.log('用户名或密码错误')
@@ -100,7 +101,8 @@ angular.module('MetronicApp')
     }
     auth.logout = function() {
         auth.removeToken();
-        window.location="../cs/login.html"
+        // window.location="../cs/login.html"
+        window.location="../login.html"
     };
     auth.authenticaton = function () {
         var $http =  $injector.get('$http')
@@ -114,7 +116,8 @@ angular.module('MetronicApp')
             }else{
                
                 auth.removeToken();
-                window.location="../cs/login.html"
+                // window.location="../cs/login.html"
+                window.location="../login.html"
                 alert("请重新输入用户名和密码");
             }
 

@@ -12,7 +12,10 @@ angular.module('MetronicApp').controller('HeaderController', function($rootScope
     $rootScope.settings.layout.pageBodySolid = false;
     $rootScope.settings.layout.pageSidebarClosed = true;
     
-    HeaderController.hello = "hello";
+    HeaderController.hello = function() {
+      console.log("hello dir")
+    };
+
 
     function get_orders() {
         $http({
@@ -101,9 +104,12 @@ angular.module('MetronicApp').controller('HeaderController', function($rootScope
     get_notes();
 
 
-    HeaderController.showAlert = function  () {
-      
-    }
+    // function search (oid,HeaderController.orders) {
+    //   _.find(HeaderController.orders, function(order) { 
+    //     return order.oid == oid;
+    //   });
+
+    // }
     function get_notes() {
         $http({
           method: 'GET',
@@ -146,6 +152,7 @@ angular.module('MetronicApp').controller('HeaderController', function($rootScope
             });
 
       };
+
      //$scope.data = HeaderController.notes;
       
       $scope.open = function(size){

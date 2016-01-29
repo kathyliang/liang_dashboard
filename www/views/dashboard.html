@@ -94,10 +94,12 @@
                                   <div class="col-md-2 nonepadding">
                                       时间
                                   </div>
-                                  <div class="col-md-9 nonepadding">
-                                      {{order.created}}
-                                  </div>
-                 
+                                  <div class="col-md-5 nonepadding">
+                                       {{order.created}}
+                                   </div>
+                                   <div class="col-md-3 nonepadding ">
+                                      订单详情 <i class=" icon-note"></i>
+                                    </div>
                               </div> 
                              <!-- </div> -->
                          </div>
@@ -181,8 +183,11 @@
                                       <div class="col-md-2 nonepadding">
                                           时间
                                       </div>
-                                      <div class="col-md-9 nonepadding">
-                                          {{order.created}}
+                                      <div class="col-md-5 nonepadding">
+                                           {{order.created}}
+                                      </div>
+                                      <div class="col-md-3 nonepadding ">
+                                        订单详情 <i class=" icon-note"></i>
                                       </div>
                      
                                   </div> 
@@ -272,10 +277,13 @@
                              <div class="col-md-2 nonepadding">
                                  时间
                              </div>
-                             <div class="col-md-9 nonepadding">
-                                 {{order.created}}
+                             <div class="col-md-5 nonepadding">
+                                  {{order.created}}
                              </div>
-            
+                             <div class="col-md-3 nonepadding ">
+                               订单详情 <i class=" icon-note"></i>
+                             </div>
+
                          </div> 
                         <!-- </div> -->
                     </div>
@@ -349,6 +357,7 @@
                               <div class="col-md-2 nonepadding">
                                   {{order.dlexp | currency}}
                               </div>
+
                           </div> 
                          
                          <div class="row"style="margin-left: 0px;margin-right: -5px;">
@@ -371,9 +380,12 @@
                              <div class="col-md-2 nonepadding">
                                  时间
                              </div>
-                             <div class="col-md-9 nonepadding">
+                             <div class="col-md-5 nonepadding">
                                  {{order.created}}
                              </div>
+                             <div class="col-md-3 nonepadding ">
+                                订单详情 <i class=" icon-note"></i>
+                              </div>
             
                          </div> 
                         <!-- </div> -->
@@ -413,9 +425,15 @@
                       <div class="actions">
                           <a class="btn btn-circle btn-default "
                              style="font-size: 12px;"
-                             data-ng-click="dc.openOrderChange(order.oid,3,order.c_addr)">
-                              {{order.dltype}} 
-
+                             data-ng-click="dc.openOrderChange(order.oid,3,order.c_addr)"
+                             ng-if="order.status == 5">
+                              拒单
+                          </a> 
+                          <a class="btn btn-circle btn-default "
+                             style="font-size: 12px;"
+                             data-ng-click="dc.openOrderChange(order.oid,3,order.c_addr)"
+                             ng-if="order.status == 90">
+                              取消
                           </a> 
                       </div>
                   </div>
@@ -467,8 +485,11 @@
                              <div class="col-md-2 nonepadding">
                                  时间
                              </div>
-                             <div class="col-md-9 nonepadding">
-                                 {{order.created}}
+                             <div class="col-md-5 nonepadding">
+                                  {{order.created}}
+                             </div>
+                             <div class="col-md-3 nonepadding ">
+                               订单详情 <i class=" icon-note"></i>
                              </div>
             
                          </div> 
@@ -581,8 +602,11 @@
                                          <div class="col-md-2 nonepadding">
                                             时间
                                          </div>
-                                         <div class="col-md-9 nonepadding">
-                                            {{order.created}}
+                                         <div class="col-md-5 nonepadding">
+                                              {{order.created}}
+                                         </div>
+                                         <div class="col-md-3 nonepadding ">
+                                           订单详情 <i class=" icon-note"></i>
                                          </div>
                                       </div>
                                    </div>

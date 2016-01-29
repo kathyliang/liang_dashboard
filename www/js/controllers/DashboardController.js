@@ -125,6 +125,9 @@ angular.module('MetronicApp').controller('DashboardController', function($rootSc
                   case '5':
                        DashCtrl.reject_order.push(order)
                       break;
+                  case '90':
+                       DashCtrl.reject_order.push(order)
+                      break;
                   case '55':
                        DashCtrl.new_user_order.push(order)
                       break;
