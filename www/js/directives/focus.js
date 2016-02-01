@@ -16,7 +16,7 @@ angular.module("MetronicApp")
       			   'Authortoken': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiIxMDYxMSIsImV4cGlyZWQiOjE0NTQzMDE3ODd9.Zanu0l3LW31UlGZ72PXbcBUDPGOstKai2oMYiX4ab_Y'
       			  },
       			}).then(function successCallback(response) {
-      			    console.log("get  test ",response)
+      			    // console.log("get  test ",response)
       			    orders = response.data.ea_orders;
       			  }, function errorCallback(response) {
       			   // alertService.alert(response);

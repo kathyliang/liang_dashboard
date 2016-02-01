@@ -1,6 +1,8 @@
 
-angular.module('MetronicApp').controller('HeaderController', function($rootScope, $scope, $http, $location,$timeout,$interval,$modal, $log,AlertService,auth,dashboardService) {
+angular.module('MetronicApp').controller('HeaderController', function(dashboardService,$rootScope, $scope, $http, $location,$timeout,$interval,$modal, $log,AlertService,auth,dashboardService) {
     var HeaderController = this;
+    // var ll = dashboardService.get();
+   
     $scope.$on('$viewContentLoaded', function() {   
         // initialize core components
         App.initAjax();
@@ -11,9 +13,9 @@ angular.module('MetronicApp').controller('HeaderController', function($rootScope
     $rootScope.settings.layout.pageBodySolid = false;
     $rootScope.settings.layout.pageSidebarClosed = true;
     
-    HeaderController.hello = function() {
-      console.log("hello dir")
-    };
+    // HeaderController.hello = function() {
+    //   console.log("hello dir")
+    // };
 
 
     function get_orders() {
@@ -88,8 +90,8 @@ angular.module('MetronicApp').controller('HeaderController', function($rootScope
                 HeaderController.drivers[driver_index].orders.push(order)
             }
         });  
-        console.log(HeaderController.delivering_order) 
-        console.log("1", HeaderController.drivers)
+        // console.log(HeaderController.delivering_order) 
+        // console.log("1", HeaderController.drivers)
     };
 
 
@@ -115,9 +117,9 @@ angular.module('MetronicApp').controller('HeaderController', function($rootScope
           url: 'https://www.chanmao.ca/index.php?r=MobMonitor/CsLoad',
           
         }).then(function successCallback(response) {
-            console.log("111111111",response)
+            
             HeaderController.notes = response.data.ea_cate; 
-            console.log("22222",response)
+            
           }, function errorCallback(response) {
            // alertService.alert(response);
           });
@@ -129,7 +131,7 @@ angular.module('MetronicApp').controller('HeaderController', function($rootScope
         CsNotes.tel = data.tel;
         CsNotes.notes = data.notes;
         // cate , oid, tel, notes
-        console.log(data)
+        // console.log(data)
 
         $http({
           method: 'POST',

@@ -188,6 +188,6 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider','$httpProvider', func
 MetronicApp.run(["$rootScope", "settings", "$state","dashboardService", function($rootScope, settings, $state,dashboardService) {
     $rootScope.$state = $state; // state to be accessed from view
     $rootScope.$settings = settings; // state to be accessed from view
-    dashboardService.get();
+    dashboardService.get_init();
 
 }]);
