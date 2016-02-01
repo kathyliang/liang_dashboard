@@ -1,5 +1,6 @@
 
-angular.module('MetronicApp').controller('DashboardController', function($rootScope, $scope, $http, $timeout,$interval,$modal,$log,auth,API_URL) {
+angular.module('MetronicApp')
+.controller('DashboardController', function($rootScope, $scope, $http, $timeout,$interval,$modal,$log,auth,API_URL) {
     var DashCtrl = this;
     $scope.$on('$viewContentLoaded', function() {   
         // initialize core components
@@ -93,7 +94,7 @@ angular.module('MetronicApp').controller('DashboardController', function($rootSc
              //dashboardService.save(DashCtrl.orders);
           }, function errorCallback(response) {
            // alertService.alert(response);
-          });
+        });
 
         //order test 2015/01/21
         // DashCtrl.orders = $scope.data.ea_orders
@@ -147,7 +148,7 @@ angular.module('MetronicApp').controller('DashboardController', function($rootSc
             }); 
             
             
-             _.forEach(DashCtrl.delivering_order,function(order) {
+            _.forEach(DashCtrl.delivering_order,function(order) {
                var driver_index = _.findIndex(DashCtrl.drivers, function(driver) {
                   return driver.deliver == order.deliver;
                 });

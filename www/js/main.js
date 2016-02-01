@@ -185,7 +185,9 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider','$httpProvider', func
 }]);
 
 /* Init global settings and run the app */
-MetronicApp.run(["$rootScope", "settings", "$state", function($rootScope, settings, $state) {
+MetronicApp.run(["$rootScope", "settings", "$state","dashboardService", function($rootScope, settings, $state,dashboardService) {
     $rootScope.$state = $state; // state to be accessed from view
     $rootScope.$settings = settings; // state to be accessed from view
+    dashboardService.get();
+
 }]);

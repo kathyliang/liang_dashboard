@@ -1,12 +1,12 @@
 
 
 angular.module("MetronicApp")
-.directive('cmForm', function($parse,$http) {
+.directive('cmForm', function(dashboardService,$parse,$http) {
 	return {
       	restrict: 'A',
-      	// scope:{
-      	// 	orders: '='
-      	// },
+      	scope:{
+      		orders: '='
+      	},
       	link: function($scope, element, attrs) {
       		
       			$http({
@@ -23,22 +23,26 @@ angular.module("MetronicApp")
       			  });
       		
       		setTimeout(function() {
-      			var input = element.find("input");
-	      		 // console.log("hello test",input);
-	      		
+                var search = element.find("div.input-group");
+                var input = element.find("input");
+
+                console.log("search",search);
+                search.click(function () {
+                    element.addClass("open");
+                    input.focus(); 
+                    dashboardService.get();
+                });
 	      		element.bind("keydown keypress", function (event) {
   		           if(event.which === 13) {
   		               console.log("enter",input[0].value)
   		               var searchText = input[0].value;
-  		               
-
   		               serach_order = _.find(orders, function(o){
                       return o.oid == searchText;
                      });
                      console.log("serach_order",serach_order);
   		           }
   		       	});
-	      		input.bind("blur",function  () {
+                input.bind("blur",function  () {
 	  				element.removeClass("open");
 	  			});
 

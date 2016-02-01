@@ -1,6 +1,5 @@
 
-angular.module('MetronicApp').controller('HeaderController', function($rootScope, $scope, $http, $location,$timeout,$interval,$modal, $log,AlertService,auth) {
-
+angular.module('MetronicApp').controller('HeaderController', function($rootScope, $scope, $http, $location,$timeout,$interval,$modal, $log,AlertService,auth,dashboardService) {
     var HeaderController = this;
     $scope.$on('$viewContentLoaded', function() {   
         // initialize core components
