@@ -1,12 +1,12 @@
 
-<!-- <ul class="page-breadcrumb breadcrumb">
+<!-- <ul class="page-breadcrf_data.umb breadcrf_data.umb">
     <li>
         <a href="#">Home</a>
         <i class="fa fa-circle"></i>
     </li>
     <li class="active"> Dashboard </li>
 </ul> -->
-<!-- END PAGE BREADCRUMB -->
+<!-- END PAGE BREADCRf_data.UMB -->
 <!-- BEGIN MAIN CONTENT -->
 
 <div >
@@ -19,17 +19,17 @@
 
              
                 <div class="item item-divider"style="text-align: center;height: 39px;font-size: 21px;padding: 5px;background-color: #f7ca18;color: #ffffff;">
-                    改运费{{dc.data.account}}
-                <span ng-if="dc.change_addr_order.length > 0">{{dc.change_addr_order.length}}单 </span>
+                    改运费
+                <span ng-if="dc.f_data.f_data.change_addr_order.length > 0">{{dc.f_data.f_data.change_addr_order.length}}单 </span>
                 </div>
                <ion-scroll style="height: 50%">
                 <!-- BEGIN 改运费 class="scroller"-->
                 <div class="order_col_box "style="height:{{dc.h2}}px;">
                     <div  class="portlet order_box "
-                          ng-repeat="(id,order) in dc.change_addr_order">
+                          ng-repeat="(id,order) in dc.f_data.f_data.change_addr_order">
                        <div  class="portlet-title order_header yellow"
                              ng-class="{warning:order.warning==1,alert:order.alert==1}">
-                           <div class=" order_title"data-ng-click="dc.openMap(order.oid,order.c_lat,order.c_lng,order.r_lat,order.r_lng,order.c_addr)">
+                           <div class=" order_title"data-ng-click="dc.f_data.openMap(order.oid,order.c_lat,order.c_lng,order.r_lat,order.r_lng,order.c_addr)">
                       
                           <i class="icon-pin" style="color: #ffffff"
                             class="dropdown-toggle"  
@@ -41,7 +41,7 @@
                                <!-- <span class="caption-helper">送餐</span> -->
                            </div>
                            <div class="actions">
-                               <a class="btn btn-circle btn-default "style="font-size: 12px;"data-ng-click="dc.openOrderChange(order.oid,2,order.c_addr)">
+                               <a class="btn btn-circle btn-default "style="font-size: 12px;"data-ng-click="dc.f_data.openOrderChange(order.oid,2,order.c_addr)">
                                    {{order.dltype}} 
                                </a> 
                            </div>
@@ -110,12 +110,12 @@
             <!-- <div style="height: 592px;"> -->
                 <div class="item item-divider"style="text-align: center;height: 39px;font-size: 21px;padding: 5px;background-color: #e87e04;color: #ffffff;">
                    新用户
-                    <span ng-if="dc.new_user_order.length > 0">{{dc.new_user_order.length}}单 </span>
+                    <span ng-if="dc.f_data.f_data.new_user_order.length > 0">{{dc.f_data.new_user_order.length}}单 </span>
                 </div>
                 <!-- BEGIN 新用户-->
                 <div class="order_col_box "style="height:{{dc.h}}px;">
                        <div  class="portlet order_box "
-                             ng-repeat="(id,order) in dc.new_user_order">
+                             ng-repeat="(id,order) in dc.f_data.new_user_order">
                            <div  class="portlet-title order_header orange"
                                  ng-class="{warning:order.warning==1,alert:order.alert==1}">
                                <div class=" order_title"data-ng-click="dc.openMap(order.oid,order.c_lat,order.c_lng,order.r_lat,order.r_lng,order.c_addr)">
@@ -202,13 +202,13 @@
         <div class="col-md-15 col-sm-3 nonepadding border-left">
           <div class="item item-divider"style="text-align: center;height: 39px;font-size: 21px;padding: 5px;background-color: #32c5d2;color: #ffffff;">
                 新订单
-                <span ng-if="dc.new_order.length > 0">{{dc.new_order.length}}单 </span>
+                <span ng-if="dc.f_data.new_order.length > 0">{{dc.f_data.new_order.length}}单 </span>
             </div>
             <!-- BEGIN ORDER BOX-->
 
             <div class="order_col_box"style="height:{{dc.h}}px;">
               <div  class="portlet order_box "
-                    ng-repeat="(id,order) in dc.new_order">
+                    ng-repeat="(id,order) in dc.f_data.new_order">
                   <div  class="portlet-title order_header skyblue"
                         ng-class="{warning:order.warning==1,alert:order.alert==1}">
                       <div class=" order_title"data-ng-click="dc.openMap(order.oid,order.c_lat,order.c_lng,order.r_lat,order.r_lng,order.c_addr)">
@@ -297,13 +297,13 @@
         <div class="col-md-15 col-sm-3 nonepadding border-left">
           <div class="item item-divider"style="text-align: center;height: 39px;font-size: 21px;padding: 5px;background-color: #67809f; color: #ffffff;">
                 已接单
-            <span ng-if="dc.confirm_order.length > 0">{{dc.confirm_order.length}}单 </span>
+            <span ng-if="dc.f_data.confirm_order.length > 0">{{dc.f_data.confirm_order.length}}单 </span>
             </div>
             <!-- BEGIN ORDER BOX-->
 
             <div class="order_col_box"style="height:{{dc.h}}px;">
               <div  class="portlet order_box "
-                    ng-repeat="(id,order) in dc.confirm_order">
+                    ng-repeat="(id,order) in dc.f_data.confirm_order">
                   <div  class="portlet-title order_header darkblue"
                         ng-class="{warning:order.warning==1,alert:order.alert==1}">
                       <div  class=" order_title"
@@ -400,13 +400,13 @@
         <div class="col-md-15 col-sm-3 nonepadding border-left">
           <div class="item item-divider"style="text-align: center;height: 39px;font-size: 21px;padding: 5px;background-color: #e35b5a;color: #ffffff;">
                 拒单
-            <span ng-if="dc.reject_order.length > 0">{{dc.reject_order.length}}单 </span>
+            <span ng-if="dc.f_data.reject_order.length > 0">{{dc.f_data.reject_order.length}}单 </span>
             </div>
             <!-- BEGIN ORDER BOX-->
 
             <div class="order_col_box"style="height:{{dc.h}}px;">
               <div  class="portlet order_box "
-                    ng-repeat="(id,order) in dc.reject_order">
+                    ng-repeat="(id,order) in dc.f_data.reject_order">
                   <div  class="portlet-title order_header red"
                         ng-class="{warning:order.warning==1,alert:order.alert==1}">
                       <div class=" order_title"
@@ -511,7 +511,7 @@
               <div class="portlet-body">
                  <div class="panel-group accordion" id="accordion3" >
                     <div class="panel panel-default"
-                         ng-repeat="(id,driver) in dc.drivers"
+                         ng-repeat="(id,driver) in dc.f_data.drivers"
                          overflow="hidden"
                          style="margin-top: 0px;">
                        <div class=" driver_heading" >
@@ -554,7 +554,7 @@
                                            data-hover="dropdown" 
                                            data-close-others="true"
                                            style="font-size: 12px;"
-                                           data-ng-click="dc.openOrderChange(order.oid,3,order.c_addr)"> 
+                                           data-ng-click="dc.f_data.openOrderChange(order.oid,3,order.c_addr)"> 
                                          {{order.dltype}} 
                                         </a>
                                     

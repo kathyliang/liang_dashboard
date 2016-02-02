@@ -13,104 +13,11 @@ angular.module('MetronicApp').controller('HeaderController', function(dashboardS
     $rootScope.settings.layout.pageBodySolid = false;
     $rootScope.settings.layout.pageSidebarClosed = true;
     
-    // HeaderController.hello = function() {
-    //   console.log("hello dir")
-    // };
-
-
-    function get_orders() {
-        $http({
-          method: 'GET',
-          url: 'https://www.chanmao.ca/index.php?r=MobMonitor/OrderList',
-          headers: {
-           'Authortoken': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiIxMDYxMSIsImV4cGlyZWQiOjE0NTQzMDE3ODd9.Zanu0l3LW31UlGZ72PXbcBUDPGOstKai2oMYiX4ab_Y'
-          },
-        }).then(function successCallback(response) {
-            console.log(response)
-            HeaderController.orders = response.data.ea_orders;
-            HeaderController.statas = response.data.ea_stats;
-             setOrders()   
-          }, function errorCallback(response) {
-           // alertService.alert(response);
-          });
-    };
-    function setOrders() {
-
-        HeaderController.new_order = [];
-        HeaderController.change_addr_order = [];
-        HeaderController.new_user_order = [];
-        HeaderController.reject_order = [];
-        HeaderController.confirm_order = [];
-        HeaderController.delivering_order = [];
-        HeaderController.complete_order = [];
-        HeaderController.drivers = [];
-
-        _.forEach( HeaderController.orders, function(order, key) {
-          // console.log(order, key);
-            switch(order.status) {
-              case '0':
-                  HeaderController.new_order.push(order)
-                  break;
-              case '60':
-                   HeaderController.change_addr_order.push(order)
-                  break;
-              case '5':
-                   HeaderController.reject_order.push(order)
-                  break;
-              case '55':
-                   HeaderController.new_user_order.push(order)
-                  break;
-              case '10':
-                  HeaderController.confirm_order.push(order)
-                  break;
-              case '20':
-                   HeaderController.delivering_order.push(order)
-                  break;
-              case '30':
-                   HeaderController.delivering_order.push(order)
-                  break;
-              case '40':
-                   HeaderController.complete_order.push(order)
-                  break; 
-            }
-        }); 
+    $timeout(function() {
+        HeaderController.order_data = dashboardService.get_orders();
         
-        _.forEach(HeaderController.delivering_order,function(order) {
-            var driver_index = _.findIndex(HeaderController.drivers, function(driver) {
-              return driver.deliver == order.deliver;
-            });
-            // console.log('driver',driver_index)
-            if(driver_index == '-1'){
-                var driver = {}
-                driver.deliver = order.deliver;
-                driver.orders = [];
-                driver.orders.push(order)
-                HeaderController.drivers.push(driver)
-            }else{
-                HeaderController.drivers[driver_index].orders.push(order)
-            }
-        });  
-        // console.log(HeaderController.delivering_order) 
-        // console.log("1", HeaderController.drivers)
-    };
-
-
-
-    $interval(function() { 
-        get_orders();
-       
-    },30000)
-
-    get_orders();
+    }, 1000);
     get_notes();
-
-
-    // function search (oid,HeaderController.orders) {
-    //   _.find(HeaderController.orders, function(order) { 
-    //     return order.oid == oid;
-    //   });
-
-    // }
     function get_notes() {
         $http({
           method: 'GET',
@@ -144,46 +51,44 @@ angular.module('MetronicApp').controller('HeaderController', function(dashboardS
               
               
               var data = response.data
-              console.log('success:',data)
+              // console.log('success:',data)
 
             }, function errorCallback(response) {
               
-              console.log('error:',response)
+              // console.log('error:',response)
 
             });
 
-      };
-
-     //$scope.data = HeaderController.notes;
+    };
       
-      $scope.open = function(size){
-          var modalInstance = $modal.open(
-          {
-              templateUrl: 'views/alert.html',
-              controller: 'AlertController as ac',
-              size: size,
-              resolve:
-              {
-                  data: function()
-                  {
-                      return HeaderController.notes;
-                  }
-              }
-          });
+    $scope.open = function(size){
+        var modalInstance = $modal.open(
+        {
+            templateUrl: 'views/notes.html',
+            controller: 'NotesController as nc',
+            size: size,
+            resolve:
+            {
+                data: function()
+                {
+                    return HeaderController.notes;
+                }
+            }
+        });
           
-          modalInstance.result.then(function(notes_data)
-          {
-              $scope.data = notes_data;
-              console.log("notes_data",notes_data)
-              post_notes($scope.data);
-          }, function()
-          {
-              $log.info('Modal dismissed at: ' + new Date());
-          });
-      };
-      HeaderController.logout = function() {
-        console.log("log out");
-          auth.logout()
-      };
+        modalInstance.result.then(function(notes_data)
+        {
+            $scope.data = notes_data;
+            // console.log("notes_data",notes_data)
+            post_notes($scope.data);
+        }, function()
+        {
+            $log.info('Modal dismissed at: ' + new Date());
+        });
+    };
+    HeaderController.logout = function() {
+    // console.log("log out");
+        auth.logout()
+    };
 
 });

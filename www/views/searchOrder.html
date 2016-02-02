@@ -1,0 +1,92 @@
+
+<div  class="portlet puc_box ">
+    <div  class="portlet-title order_header darkblue"
+        ng-class="{warning:puc.warning==1,alert:puc.alert==1}">
+        <div  class=" order_title">
+              
+            <span class="caption-subject"style="font-size: 12px;">订单号： {{puc.oid}}</span>
+            <span class="caption-subject"style="font-size: 10px;">   电话：{{puc.cell}}</span>
+
+              <!-- <span class="caption-helper">送餐</span> -->
+            </div>
+            <div class="actions">
+                <a  class="btn btn-circle btn-default dropdown-toggle"
+                    data-hover="dropdown" 
+                    data-close-others="true"
+                    style="font-size: 12px;"
+                    data-ng-click="dc.openOrderChange(puc.oid,3,puc.c_addr)"> 
+                    {{puc.dltype}} 
+                </a>
+           
+            </div>
+       
+        </div>
+        <div class="portlet-body order_body">
+             
+            <div class="row"style="margin-left: 0px;margin-right: -5px;">
+
+                <div class="col-md-2 nonepadding">
+                    餐馆
+                </div>
+                <div class="col-md-5 nonepadding">
+                    {{puc.rrname}}
+                </div>
+                <div class="col-md-2 nonepadding">
+                     司机
+                </div>
+                <div class="col-md-2 nonepadding">
+                     {{puc.deliver}}
+                </div>
+            </div> 
+
+            <div class="row"style="margin-left: 0px;margin-right: -5px;">
+
+                <div class="col-md-2 nonepadding">
+                    总价
+                </div>
+                <div class="col-md-5 nonepadding">
+                    {{puc.total | currency}}
+                </div>
+                <div class="col-md-2 nonepadding">
+                    运费
+                </div>
+                <div class="col-md-2 nonepadding">
+                    {{puc.dlexp | currency}}
+                </div>
+
+            </div> 
+             
+            <div class="row"style="margin-left: 0px;margin-right: -5px;">
+
+                <div class="col-md-2 nonepadding">
+                    状态
+                </div>
+                <div class="col-md-5 nonepadding">
+                    {{puc.status_txt}}
+                </div>
+                <div class="col-md-2 nonepadding">
+                平台
+                </div>
+                <div class="col-md-2 nonepadding">
+                    {{puc.channel}}
+                </div>
+            </div> 
+            <div class="row"style="margin-left: 0px;margin-right: -5px;">
+
+                <div class="col-md-2 nonepadding">
+                     时间
+                </div>
+                <div class="col-md-5 nonepadding">
+                     {{puc.created}}
+                </div>
+                <div class="col-md-3 nonepadding ">
+                    订单详情<i class=" icon-note"></i>
+                 </div>
+
+            </div> 
+    </div>
+</div>
+<div class="modal-footer">
+    <!-- 在这里是call ok，cancel会reject promise后返回dash ctrl -->
+    <button class="btn btn-warning" ng-click="ok()">Close</button>
+</div>

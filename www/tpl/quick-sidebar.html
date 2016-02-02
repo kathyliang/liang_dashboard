@@ -4,7 +4,7 @@
         <ul class="nav nav-tabs nav-justified">
             <li class="active">
                 <a href="#" data-target="#quick_sidebar_tab_1" data-toggle="tab" dropdown-menu-hover data-close-others="true"> 司机
-                    <span class="badge badge-danger">{{qc.drivers.length}}</span>
+                    <span class="badge badge-danger">{{qc.f_data.drivers.length}}</span>
                 </a>
             </li>
             <li>
@@ -41,7 +41,7 @@
                 <div class="page-quick-sidebar-chat-users" data-rail-color="#ddd" data-wrapper-class="page-quick-sidebar-list">
                     <h3 class="list-heading">上班</h3>
                     <ul class="media-list list-items">
-                        <li class="media" ng-repeat="driver in qc.drivers">
+                        <li class="media" ng-repeat="driver in qc.f_data.drivers">
                             <div class="media-status">
                                 <span class="badge badge-warning">{{driver.orders.length}}单</span>
                             </div>

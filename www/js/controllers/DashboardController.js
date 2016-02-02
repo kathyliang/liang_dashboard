@@ -7,20 +7,21 @@ angular.module('MetronicApp').controller('DashboardController', function(dashboa
     });
     // auth.login("kathy","liangliang");
     auth.authenticaton();
-
     DashCtrl.h = window.innerHeight*0.8;
     DashCtrl.h2 = window.innerHeight*0.8*0.5;
-    console.log("height",DashCtrl.h2);
+    // console.log("height",DashCtrl.h2);
     // set sidebar closed and body solid layout mode
     $rootScope.settings.layout.pageContentWhite = true;
     $rootScope.settings.layout.pageBodySolid = false;
     $rootScope.settings.layout.pageSidebarClosed = true;
 
-    setTimeout(function() {
-        console.log("get data from dashboard service",dashboardService.get_orders())
-        DashCtrl.data = dashboardService.get_orders()
-        console.log(dashboardService.get_orders(), DashCtrl.account)
-    }, 3000);
+    $timeout(function() {
+        // console.log("get data from dashboard service",dashboardService.get_orders())
+        DashCtrl.order_data = dashboardService.get_orders();
+        // console.log("test get",DashCtrl.order_data);
+        DashCtrl.f_data = dashboardService.get_fomat();
+        // console.log("test fomat", DashCtrl.f_data.reject_order);
+    }, 1000);
     
    
     DashCtrl.openOrderChange = function (oid,port,c_addr) {
@@ -56,16 +57,14 @@ angular.module('MetronicApp').controller('DashboardController', function(dashboa
       // eo_data.r_addr= r_addr;
       // eo_data.c_addr=c_addr;
       eo_data.type = "maps";
-      DashCtrl.openPopup(size,eo_data);
-      
-      
+      DashCtrl.openPopup(size,eo_data);  
     };
 
     DashCtrl.openPopup = function (size,eo_data) {
       var modalInstance = $modal.open(
       {
           templateUrl: 'views/orderChange.html',
-          controller: 'OrderChangeCtrl as occ',
+          controller: 'popUpCtrl as puc',
           size: size,
           resolve:
           {
@@ -79,14 +78,10 @@ angular.module('MetronicApp').controller('DashboardController', function(dashboa
       modalInstance.result.then(function()
       {
         // promise 成功完成后call get orders 刷新数据
-         get_orders()
+         dashboardService.get_orders();
       }, function()
       {
           $log.info('Modal dismissed at: ' + new Date());
       });
     }
-
-
-
-
 });
