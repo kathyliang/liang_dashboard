@@ -14,14 +14,12 @@ angular.module('MetronicApp').controller('popUpCtrl', function($scope,$sce, $mod
            orderDetial(data)
            break;
     }
-
     function order (data) {
         var oid = data.oid
         var port = data.port
         popUpCtrl.oid = oid
         popUpCtrl.url= $sce.trustAsResourceUrl("https://www.chanmao.ca/monitor/#/" + port + "/"+ oid +"/e");
     }
-      
     function maps (data) {
         var lv_c_lat  = data.c_lat;
         var lv_c_lng  = data.c_lng;
@@ -53,25 +51,15 @@ angular.module('MetronicApp').controller('popUpCtrl', function($scope,$sce, $mod
         popUpCtrl.channel = data.channel;
         popUpCtrl.created = data.created;
         popUpCtrl.deliver = data.deliver;
-        
-        
     }
-        
-   
     $scope.ok = function()
     {
         // $modalInstance.close($scope.selected.item);
         $modalInstance.close();
     };
-    
     $scope.cancel = function()
     {
         $modalInstance.dismiss('cancel');
         // window.location.reload();
-
     };
-
-
-
-    
 });

@@ -77,8 +77,9 @@ angular.module('MetronicApp').controller('DashboardController', function(dashboa
           
       modalInstance.result.then(function()
       {
-        // promise 成功完成后call get orders 刷新数据
-         dashboardService.get_orders();
+        // promise 成功完成后call get init 刷新数据
+        dashboardService.get_init();
+        // console.log("1");
       }, function()
       {
           $log.info('Modal dismissed at: ' + new Date());
