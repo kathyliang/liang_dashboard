@@ -39,6 +39,10 @@ angular.module('MetronicApp').controller('DashboardController', function(dashboa
       if (port == 3) {
         eo_data.port = "csorderchange";
       };
+      if (port == 4) {
+        eo_data.port = "detail";
+        eo_data.type = "showod";
+      };
 
       DashCtrl.openPopup(size,eo_data);
       

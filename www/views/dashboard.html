@@ -26,7 +26,7 @@
                 <!-- BEGIN 改运费 class="scroller"-->
                 <div class="order_col_box "style="height:{{dc.h2}}px;">
                     <div  class="portlet order_box "
-                          ng-repeat="(id,order) in dc.f_data.f_data.change_addr_order">
+                          ng-repeat="(id,order) in dc.f_data.change_addr_order">
                        <div  class="portlet-title order_header yellow"
                              ng-class="{warning:order.warning==1,alert:order.alert==1}">
                            <div class=" order_title"data-ng-click="dc.f_data.openMap(order.oid,order.c_lat,order.c_lng,order.r_lat,order.r_lng,order.c_addr)">
@@ -98,7 +98,10 @@
                                        {{order.created}}
                                    </div>
                                    <div class="col-md-3 nonepadding ">
-                                      订单详情 <i class=" icon-note"></i>
+                                      订单详情 
+                                      <i class=" icon-note"
+                                      data-ng-click="dc.openOrderChange(order.oid,4,order.c_addr)">
+                                      </i>
                                     </div>
                               </div> 
                              <!-- </div> -->
@@ -187,7 +190,9 @@
                                            {{order.created}}
                                       </div>
                                       <div class="col-md-3 nonepadding ">
-                                        订单详情 <i class=" icon-note"></i>
+                                        订单详情 
+                                        <i class=" icon-note"data-ng-click="dc.openOrderChange(order.oid,4,order.c_addr)">
+                                        </i>
                                       </div>
                      
                                   </div> 
@@ -281,7 +286,7 @@
                                   {{order.created}}
                              </div>
                              <div class="col-md-3 nonepadding ">
-                               订单详情 <i class=" icon-note"></i>
+                               订单详情 <i class=" icon-note"data-ng-click="dc.openOrderChange(order.oid,4,order.c_addr)"></i>
                              </div>
 
                          </div> 
@@ -384,7 +389,7 @@
                                  {{order.created}}
                              </div>
                              <div class="col-md-3 nonepadding ">
-                                订单详情 <i class=" icon-note"></i>
+                                订单详情 <i class=" icon-note"data-ng-click="dc.openOrderChange(order.oid,4,order.c_addr)"></i>
                               </div>
             
                          </div> 
@@ -489,7 +494,7 @@
                                   {{order.created}}
                              </div>
                              <div class="col-md-3 nonepadding ">
-                               订单详情 <i class=" icon-note"></i>
+                               订单详情 <i class=" icon-note" data-ng-click="dc.openOrderChange(order.oid,4,order.c_addr)"></i>
                              </div>
             
                          </div> 
@@ -606,7 +611,10 @@
                                               {{order.created}}
                                          </div>
                                          <div class="col-md-3 nonepadding ">
-                                           订单详情 <i class=" icon-note"></i>
+                                            订单详情 
+                                            <i class=" icon-note" 
+                                            data-ng-click="dc.openOrderChange(order.oid,4,order.c_addr)">
+                                            </i>
                                          </div>
                                       </div>
                                    </div>

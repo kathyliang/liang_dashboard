@@ -11,8 +11,11 @@ angular.module('MetronicApp').controller('popUpCtrl', function($scope,$sce, $mod
            maps(data)
            break;
        case "od":
-           orderDetial(data)
+           search_orderDetial(data)
            break;
+        case "showod":
+            orderDetial(data)
+            break;
     }
     function order (data) {
         var oid = data.oid
@@ -41,6 +44,12 @@ angular.module('MetronicApp').controller('popUpCtrl', function($scope,$sce, $mod
     }
         
     function orderDetial (argument) {
+        var oid = data.oid
+        var port = data.port
+        popUpCtrl.oid = oid
+        popUpCtrl.url= $sce.trustAsResourceUrl("https://www.chanmao.ca/monitor/#/" + port + "/"+ oid);
+    }
+    function search_orderDetial (argument) {
         popUpCtrl.oid     = data.oid;
         popUpCtrl.cell    = data.cell;
         popUpCtrl.dltype  = data.dltype;

@@ -7,9 +7,12 @@ angular.module("MetronicApp")
         },
         link: function($scope, element, attrs) {
       			$timeout(function() {
-                    orders = dashboardService.get_orders().orders;
-                    // console.log("test get",orders);
-                }, 1000);
+                    data = dashboardService.get_orders();
+                    orders = data.orders;
+                    // orders = dashboardService.get_orders().orders;
+                    console.log("test get",orders);
+
+                }, 2000);
 
           		$timeout(function() {
                     var search = element.find("div.input-group");
@@ -27,7 +30,8 @@ angular.module("MetronicApp")
       		                serach_order = _.find(orders, function(order){
                                 return order.oid == searchText;
                             });
-
+                            console.log("serach_order",serach_order);
+                            console.log("order",orders);
                             if (serach_order){
                                 serach_order.type = "od"
                                 open(serach_order)
