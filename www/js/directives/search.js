@@ -10,7 +10,7 @@ angular.module("MetronicApp")
                     data = dashboardService.get_orders();
                     orders = data.orders;
                     // orders = dashboardService.get_orders().orders;
-                    console.log("test get",orders);
+                    // console.log("test get",orders);
 
                 }, 2000);
 
@@ -30,8 +30,8 @@ angular.module("MetronicApp")
       		                serach_order = _.find(orders, function(order){
                                 return order.oid == searchText;
                             });
-                            console.log("serach_order",serach_order);
-                            console.log("order",orders);
+                            // console.log("serach_order",serach_order);
+                            // console.log("order",orders);
                             if (serach_order){
                                 serach_order.type = "od"
                                 open(serach_order)

@@ -90,6 +90,8 @@ angular.module('MetronicApp')
                 }
             }); 
 
+
+
              //如有需要克服介入的单 播放声音
             if(lo_fdata.new_order.length + lo_fdata.change_addr_order.length + lo_fdata.new_user_order.length > 0){
                 play_audio()
@@ -100,7 +102,7 @@ angular.module('MetronicApp')
 
     dashboardService.get_orders = function  () {
     		if (lo_data.statas !== null){
-    			// console.log("lo_data in service",lo_data)
+    			console.log("lo_data in service",lo_data)
     			return lo_data;
     		}
     }
